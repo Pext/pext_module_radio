@@ -57,6 +57,8 @@ class Module(ModuleBase):
         return cache['time'] < time.time() - 600
 
     def _requestData(self, path, version=1):
+        path = path.replace(" ", "%20")
+
         if version == 1:
             url = '{}/json/{}'.format(self.baseUrl, path)
         else:
