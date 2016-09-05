@@ -172,13 +172,19 @@ class Module(ModuleBase):
                 stationId = station['id']
                 break
 
-        url = self._requestData('url/{}'.format(stationId), version=2)['url']
+        response = self._requestData('url/{}'.format(stationId), version=2)
+
+        if response['ok'] == 'false':
+            self.q.put([Action.addError, response['message']])
+            return False
 
         # TODO: Replace ffplay with something more easily scriptable that
         # preferrably notifies us of song changes on the station.
         self.nowPlaying = {'id': stationId,
                            'name': stationName,
-                           'process': Popen(['ffplay', '-nodisp', url])}
+                           'process': Popen(['ffplay', '-nodisp', response['url']])}
+
+        return True
 
     def _stopPlaying(self):
         if self.nowPlaying:
@@ -224,7 +230,11 @@ class Module(ModuleBase):
                 # Remove station info from station name
                 stationName = selection[2]['value'][:selection[2]['value'].rfind('(')].rstrip()
 
-                self._playStation(self._menuToType(selection[0]['value']), '', stationName)
+                if self._playStation(self._menuToType(selection[0]['value']), '', stationName):
+                    self.q.put([Action.close])
+                else:
+                    self.q.put([Action.setSelection, selection[:-1]])
+
                 return
 
             # Remove station count from searchterm
@@ -238,8 +248,10 @@ class Module(ModuleBase):
             # Remove station info from station name
             stationName = selection[2]['value'][:selection[2]['value'].rfind('(')].rstrip()
 
-            self._playStation(self._menuToType(selection[0]['value']), searchTerm, stationName)
-            self.q.put([Action.close])
+            if self._playStation(self._menuToType(selection[0]['value']), searchTerm, stationName):
+                self.q.put([Action.close])
+            else:
+                self.q.put([Action.setSelection, selection[:-1]])
         else:
             self.q.put([Action.criticalError, 'Unexpected selectionMade value: {}'.format(selection)])
 
