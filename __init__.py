@@ -182,7 +182,7 @@ class Module(ModuleBase):
         # preferrably notifies us of song changes on the station.
         self.nowPlaying = {'id': stationId,
                            'name': stationName,
-                           'process': Popen(['ffplay', '-nodisp', response['url']])}
+                           'process': Popen(['ffplay', '-nodisp', '-nostats', '-loglevel', '0', response['url']])}
 
         return True
 
