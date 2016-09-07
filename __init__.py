@@ -202,7 +202,6 @@ class Module(ModuleBase):
         self._stopPlaying()
 
     def selectionMade(self, selection):
-        print(selection)
         self.q.put([Action.replaceCommandList, []])
         if len(selection) == 0:
             self.q.put([Action.replaceEntryList, []])
