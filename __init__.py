@@ -129,6 +129,11 @@ class Module(ModuleBase):
         self.q.put([Action.addEntry, 'By Most Recent Listener'])
         self.q.put([Action.addEntry, 'By Most Recent Change'])
         if self.nowPlaying:
+            if self.nowPlaying['process']:
+                self.q.put([Action.addCommand, 'mute'])
+            else:
+                self.q.put([Action.addCommand, 'unmute'])
+
             self.q.put([Action.addCommand, 'stop'])
             self.q.put([Action.addCommand, 'vote'])
 
@@ -182,9 +187,32 @@ class Module(ModuleBase):
         # preferrably notifies us of song changes on the station.
         self.nowPlaying = {'id': stationId,
                            'name': stationName,
-                           'process': Popen(['ffplay', '-nodisp', '-nostats', '-loglevel', '0', response['url']])}
+                           'url': response['url'],
+                           'process': None}
+
+        self._toggleMute()
 
         return True
+
+    def _toggleMute(self):
+        """Toggle mute.
+
+        While this function technically disconnects or connects to the
+        station, instead of just muting, it is simpler code-wise and has
+        the added benefit of saving bandwidth.
+
+        TODO: Replace this with an actual mute function.
+        """
+        if self.nowPlaying:
+            if self.nowPlaying['process']:
+                os.kill(self.nowPlaying['process'].pid, SIGTERM)
+                self.nowPlaying['process'] = None
+            else:
+                self.nowPlaying['process'] = Popen(['ffplay',
+                                                    '-nodisp',
+                                                    '-nostats',
+                                                    '-loglevel', '0',
+                                                    self.nowPlaying['url']])
 
     def _stopPlaying(self):
         if self.nowPlaying:
@@ -208,7 +236,9 @@ class Module(ModuleBase):
             self._getEntries()
         elif len(selection) == 1:
             if selection[0]['type'] == SelectionType.command:
-                if selection[0]['value'] == 'stop':
+                if selection[0]['value'] in ['mute', 'unmute']:
+                    self._toggleMute()
+                elif selection[0]['value'] == 'stop':
                     self._stopPlaying()
                 elif selection[0]['value'] == 'vote':
                     self._voteStation()
