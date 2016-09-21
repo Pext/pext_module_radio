@@ -207,7 +207,9 @@ class Module(ModuleBase):
             if self.nowPlaying['process']:
                 os.kill(self.nowPlaying['process'].pid, SIGTERM)
                 self.nowPlaying['process'] = None
+                self.q.put([Action.setHeader, 'Tuned into {} (muted)'.format(self.nowPlaying['name'])])
             else:
+                self.q.put([Action.setHeader, 'Tuned into {}'.format(self.nowPlaying['name'])])
                 self.nowPlaying['process'] = Popen(['ffplay',
                                                     '-nodisp',
                                                     '-nostats',
@@ -218,6 +220,7 @@ class Module(ModuleBase):
         if self.nowPlaying:
             os.kill(self.nowPlaying['process'].pid, SIGTERM)
             self.nowPlaying = None
+            self.q.put([Action.setHeader])
 
     def _voteStation(self):
         result = self._requestData('vote/{}'.format(self.nowPlaying['id']))
