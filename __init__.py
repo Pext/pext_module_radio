@@ -51,12 +51,12 @@ class Module(ModuleBase):
 
         self.nowPlaying = None
 
-        self._getEntries()
+        self._get_entries()
 
-    def _cacheExpired(self, cache):
+    def _cache_expired(self, cache):
         return cache['time'] < time.time() - 600
 
-    def _requestData(self, path, version=1):
+    def _request_data(self, path, version=1):
         path = path.replace(" ", "%20")
 
         if version == 1:
@@ -73,13 +73,13 @@ class Module(ModuleBase):
 
         return data
 
-    def _entryDepth(self, text):
-        if self._menuToType(text) in self.cached:
+    def _entry_depth(self, text):
+        if self._menu_to_type(text) in self.cached:
             return 2
         else:
             return 1
 
-    def _menuToType(self, text):
+    def _menu_to_type(self, text):
         if text == 'By Country':
             return 'countries'
         elif text == 'By Codec':
@@ -99,7 +99,7 @@ class Module(ModuleBase):
         else:
             raise ValueError("Invalid text")
 
-    def _typeToStations(self, byType):
+    def _type_to_stations(self, byType):
         if byType == 'countries':
             return 'stations/bycountryexact'
         elif byType == 'codecs':
@@ -119,51 +119,51 @@ class Module(ModuleBase):
         else:
             raise ValueError("Invalid type")
 
-    def _getEntries(self):
-        self.q.put([Action.addEntry, 'By Country'])
-        self.q.put([Action.addEntry, 'By Codec'])
-        self.q.put([Action.addEntry, 'By Language'])
-        self.q.put([Action.addEntry, 'By Tags'])
-        self.q.put([Action.addEntry, 'By Votes'])
-        self.q.put([Action.addEntry, 'By Most Tune-Ins'])
-        self.q.put([Action.addEntry, 'By Most Recent Listener'])
-        self.q.put([Action.addEntry, 'By Most Recent Change'])
+    def _get_entries(self):
+        self.q.put([Action.add_entry, 'By Country'])
+        self.q.put([Action.add_entry, 'By Codec'])
+        self.q.put([Action.add_entry, 'By Language'])
+        self.q.put([Action.add_entry, 'By Tags'])
+        self.q.put([Action.add_entry, 'By Votes'])
+        self.q.put([Action.add_entry, 'By Most Tune-Ins'])
+        self.q.put([Action.add_entry, 'By Most Recent Listener'])
+        self.q.put([Action.add_entry, 'By Most Recent Change'])
         if self.nowPlaying:
             if self.nowPlaying['process']:
-                self.q.put([Action.addCommand, 'mute'])
+                self.q.put([Action.add_command, 'mute'])
             else:
-                self.q.put([Action.addCommand, 'unmute'])
+                self.q.put([Action.add_command, 'unmute'])
 
-            self.q.put([Action.addCommand, 'stop'])
-            self.q.put([Action.addCommand, 'vote'])
+            self.q.put([Action.add_command, 'stop'])
+            self.q.put([Action.add_command, 'vote'])
 
-    def _getList(self, path):
-        self.q.put([Action.replaceEntryList, []])
+    def _get_list(self, path):
+        self.q.put([Action.replace_entry_list, []])
 
-        if self._cacheExpired(self.cached[path]):
-            self.cached[path] = {'time': time.time(), 'data': self._requestData(path)}
+        if self._cache_expired(self.cached[path]):
+            self.cached[path] = {'time': time.time(), 'data': self._request_data(path)}
 
         for entry in self.cached[path]['data']:
-            self.q.put([Action.addEntry, '{} ({} stations)'.format(entry['name'], entry['stationcount'])])
+            self.q.put([Action.add_entry, '{} ({} stations)'.format(entry['name'], entry['stationcount'])])
 
-    def _getStations(self, byType, searchTerm):
-        self.q.put([Action.replaceEntryList, []])
+    def _get_stations(self, byType, searchTerm):
+        self.q.put([Action.replace_entry_list, []])
         if searchTerm:
-            if not searchTerm in self.cachedStations[byType] or self._cacheExpired(self.cachedStations[byType][searchTerm]):
-                self.cachedStations[byType][searchTerm] = {'time': time.time(), 'data': self._requestData('{}/{}'.format(self._typeToStations(byType), searchTerm))}
+            if not searchTerm in self.cachedStations[byType] or self._cache_expired(self.cachedStations[byType][searchTerm]):
+                self.cachedStations[byType][searchTerm] = {'time': time.time(), 'data': self._request_data('{}/{}'.format(self._type_to_stations(byType), searchTerm))}
 
             cache = self.cachedStations[byType][searchTerm]
         else:
-            if self._cacheExpired(self.cachedStations[byType]):
-                self.cachedStations[byType] = {'time': time.time(), 'data': self._requestData(self._typeToStations(byType))}
+            if self._cache_expired(self.cachedStations[byType]):
+                self.cachedStations[byType] = {'time': time.time(), 'data': self._request_data(self._type_to_stations(byType))}
 
             cache = self.cachedStations[byType]
 
         for entry in cache['data']:
-            self.q.put([Action.addEntry, '{} ({}kbps {} - {} - {})'.format(entry['name'], entry['bitrate'], entry['codec'], entry['tags'] if entry['tags'] else 'no tags', entry['homepage'])])
+            self.q.put([Action.add_entry, '{} ({}kbps {} - {} - {})'.format(entry['name'], entry['bitrate'], entry['codec'], entry['tags'] if entry['tags'] else 'no tags', entry['homepage'])])
 
-    def _playStation(self, byType, searchTerm, stationName):
-        self._stopPlaying()
+    def _play_station(self, byType, searchTerm, stationName):
+        self._stop_playing()
 
         stationId = None
 
@@ -177,10 +177,10 @@ class Module(ModuleBase):
                 stationId = station['id']
                 break
 
-        response = self._requestData('url/{}'.format(stationId), version=2)
+        response = self._request_data('url/{}'.format(stationId), version=2)
 
         if response['ok'] == 'false':
-            self.q.put([Action.addError, response['message']])
+            self.q.put([Action.add_error, response['message']])
             return False
 
         # TODO: Replace ffplay with something more easily scriptable that
@@ -190,11 +190,11 @@ class Module(ModuleBase):
                            'url': response['url'],
                            'process': None}
 
-        self._toggleMute()
+        self._toggle_mute()
 
         return True
 
-    def _toggleMute(self):
+    def _toggle_mute(self):
         """Toggle mute.
 
         While this function technically disconnects or connects to the
@@ -207,72 +207,72 @@ class Module(ModuleBase):
             if self.nowPlaying['process']:
                 os.kill(self.nowPlaying['process'].pid, SIGTERM)
                 self.nowPlaying['process'] = None
-                self.q.put([Action.setHeader, 'Tuned into {} (muted)'.format(self.nowPlaying['name'])])
+                self.q.put([Action.set_header, 'Tuned into {} (muted)'.format(self.nowPlaying['name'])])
             else:
-                self.q.put([Action.setHeader, 'Tuned into {}'.format(self.nowPlaying['name'])])
+                self.q.put([Action.set_header, 'Tuned into {}'.format(self.nowPlaying['name'])])
                 self.nowPlaying['process'] = Popen(['ffplay',
                                                     '-nodisp',
                                                     '-nostats',
                                                     '-loglevel', '0',
                                                     self.nowPlaying['url']])
 
-    def _stopPlaying(self):
+    def _stop_playing(self):
         if self.nowPlaying:
             os.kill(self.nowPlaying['process'].pid, SIGTERM)
             self.nowPlaying = None
-            self.q.put([Action.setHeader])
+            self.q.put([Action.set_header])
 
-    def _voteStation(self):
-        result = self._requestData('vote/{}'.format(self.nowPlaying['id']))
+    def _vote_station(self):
+        result = self._request_data('vote/{}'.format(self.nowPlaying['id']))
         if result['ok'] == "true":
-            self.q.put([Action.addMessage, 'Voted for station {}'.format(self.nowPlaying['name'])])
+            self.q.put([Action.add_message, 'Voted for station {}'.format(self.nowPlaying['name'])])
         else:
-            self.q.put([Action.addError, 'Failed to vote for {}: {}'.format(self.nowPlaying['name'], result['message'])])
+            self.q.put([Action.add_error, 'Failed to vote for {}: {}'.format(self.nowPlaying['name'], result['message'])])
 
     def stop(self):
-        self._stopPlaying()
+        self._stop_playing()
 
-    def selectionMade(self, selection):
-        self.q.put([Action.replaceCommandList, []])
+    def selection_made(self, selection):
+        self.q.put([Action.replace_command_list, []])
         if len(selection) == 0:
-            self.q.put([Action.replaceEntryList, []])
-            self._getEntries()
+            self.q.put([Action.replace_entry_list, []])
+            self._get_entries()
         elif len(selection) == 1:
             if selection[0]['type'] == SelectionType.command:
                 if selection[0]['value'] in ['mute', 'unmute']:
-                    self._toggleMute()
+                    self._toggle_mute()
                 elif selection[0]['value'] == 'stop':
-                    self._stopPlaying()
+                    self._stop_playing()
                 elif selection[0]['value'] == 'vote':
-                    self._voteStation()
+                    self._vote_station()
 
-                self.q.put([Action.setSelection, []])
+                self.q.put([Action.set_selection, []])
                 return
 
             # Force station list when no subcategories
-            if self._entryDepth(selection[0]['value']) == 1:
-                self._getStations(self._menuToType(selection[0]['value']), '')
+            if self._entry_depth(selection[0]['value']) == 1:
+                self._get_stations(self._menu_to_type(selection[0]['value']), '')
                 return
 
             menuText = selection[0]['value']
-            self._getList(self._menuToType(menuText))
+            self._get_list(self._menu_to_type(menuText))
         elif len(selection) == 2:
             # Force playing when no subcategories
-            if self._entryDepth(selection[0]['value']) == 1:
+            if self._entry_depth(selection[0]['value']) == 1:
                 # Remove station info from station name
                 stationName = selection[2]['value'][:selection[2]['value'].rfind('(')].rstrip()
 
-                if self._playStation(self._menuToType(selection[0]['value']), '', stationName):
+                if self._play_station(self._menu_to_type(selection[0]['value']), '', stationName):
                     self.q.put([Action.close])
                 else:
-                    self.q.put([Action.setSelection, selection[:-1]])
+                    self.q.put([Action.set_selection, selection[:-1]])
 
                 return
 
             # Remove station count from searchterm
             searchTerm = selection[1]['value'][:selection[1]['value'].rfind('(')].rstrip()
 
-            self._getStations(self._menuToType(selection[0]['value']), searchTerm)
+            self._get_stations(self._menu_to_type(selection[0]['value']), searchTerm)
         elif len(selection) == 3:
             # Remove station count from searchterm
             searchTerm = selection[1]['value'][:selection[1]['value'].rfind('(')].rstrip()
@@ -280,12 +280,12 @@ class Module(ModuleBase):
             # Remove station info from station name
             stationName = selection[2]['value'][:selection[2]['value'].rfind('(')].rstrip()
 
-            if self._playStation(self._menuToType(selection[0]['value']), searchTerm, stationName):
+            if self._play_station(self._menu_to_type(selection[0]['value']), searchTerm, stationName):
                 self.q.put([Action.close])
             else:
-                self.q.put([Action.setSelection, selection[:-1]])
+                self.q.put([Action.set_selection, selection[:-1]])
         else:
-            self.q.put([Action.criticalError, 'Unexpected selectionMade value: {}'.format(selection)])
+            self.q.put([Action.critical_error, 'Unexpected selection_made value: {}'.format(selection)])
 
-    def processResponse(self, response):
+    def process_response(self, response):
         pass
