@@ -218,7 +218,8 @@ class Module(ModuleBase):
 
     def _stop_playing(self):
         if self.nowPlaying:
-            os.kill(self.nowPlaying['process'].pid, SIGTERM)
+            if self.nowPlaying['process']:
+                os.kill(self.nowPlaying['process'].pid, SIGTERM)
             self.nowPlaying = None
             self.q.put([Action.set_header])
 
