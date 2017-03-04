@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Copyright (C) 2016 Sylvia van Os <iamsylvie@openmailbox.org>
+# Copyright (C) 2016 - 2017 Sylvia van Os <sylvia@hackerchick.me>
 #
 # Pext RadioBrowser module is free software: you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as published by
@@ -260,7 +260,7 @@ class Module(ModuleBase):
             # Force playing when no subcategories
             if self._entry_depth(selection[0]['value']) == 1:
                 # Remove station info from station name
-                stationName = selection[2]['value'][:selection[2]['value'].rfind('(')].rstrip()
+                stationName = selection[1]['value'][:selection[1]['value'].rfind('(')].rstrip()
 
                 if self._play_station(self._menu_to_type(selection[0]['value']), '', stationName):
                     self.q.put([Action.close])
