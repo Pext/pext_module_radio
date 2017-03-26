@@ -18,6 +18,7 @@
 import json
 import os
 import time
+from shutil import which
 from signal import SIGTERM
 from subprocess import Popen
 from urllib.request import Request, urlopen
@@ -50,6 +51,10 @@ class Module(ModuleBase):
                                'lastchange': {'time': 0}}
 
         self.nowPlaying = None
+
+        if not shutil.which("ffplay"):
+            self.q.put([Action.critical_error, "ffplay is not installed, please install it."])
+            return
 
         self._get_entries()
 
