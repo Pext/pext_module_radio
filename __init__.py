@@ -52,7 +52,7 @@ class Module(ModuleBase):
 
         self.nowPlaying = None
 
-        if not shutil.which("ffplay"):
+        if not which("ffplay"):
             self.q.put([Action.critical_error, "ffplay is not installed, please install it."])
             return
 
