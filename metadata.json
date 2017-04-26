@@ -7,5 +7,14 @@
   "git_urls": [
     "https://github.com/Pext/pext_module_radiobrowser",
     "https://notabug.org/Pext/pext_module_radiobrowser"
-  ]
+  ],
+  "settings": [{
+    "name": "baseUrl",
+    "description": "API base URL",
+    "default": "http://www.radio-browser.info/webservice"
+  }, {
+    "name": "useragent",
+    "description": "User Agent",
+    "default": "Pext RadioBrowser/Development"
+  }]
 }
