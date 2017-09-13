@@ -15,6 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import html
 import json
 import os
 import time
@@ -34,6 +35,7 @@ class Module(ModuleBase):
 
         self.useragent = 'Pext RadioBrowser/Development' if ('useragent' not in settings) else settings['useragent']
 
+        self.settings = settings
         self.q = q
 
         self.cached = {'countries': {'time': 0},
@@ -165,7 +167,10 @@ class Module(ModuleBase):
             cache = self.cachedStations[byType]
 
         for entry in cache['data']:
-            self.q.put([Action.add_entry, '{} ({}kbps {} - {} - {})'.format(entry['name'], entry['bitrate'], entry['codec'], entry['tags'] if entry['tags'] else 'no tags', entry['homepage'])])
+            self.q.put([Action.add_entry, entry['name']])
+            if self.settings['_api_version'] >= [0, 3, 1]:
+                self.q.put([Action.set_entry_info, entry['name'], "<b>{}</b><br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/><b>Homepage: </b><a href='{}'>{}</a>".format(html.escape(entry['name']), html.escape(entry['bitrate']), html.escape(entry['codec']), html.escape(entry['language']), "{}, {}".format(html.escape(entry['state']), html.escape(entry['country'])) if entry['state'] else html.escape(entry['country']), html.escape(", ".join(entry['tags'].split(",")) if entry['tags'] else "None"), html.escape(entry['homepage']), html.escape(entry['homepage']))])
+
 
     def _play_station(self, byType, searchTerm, stationName):
         self._stop_playing()
@@ -265,10 +270,7 @@ class Module(ModuleBase):
         elif len(selection) == 2:
             # Force playing when no subcategories
             if self._entry_depth(selection[0]['value']) == 1:
-                # Remove station info from station name
-                stationName = selection[1]['value'][:selection[1]['value'].rfind('(')].rstrip()
-
-                if self._play_station(self._menu_to_type(selection[0]['value']), '', stationName):
+                if self._play_station(self._menu_to_type(selection[0]['value']), '', selection[1]['value']):
                     self.q.put([Action.close])
                 else:
                     self.q.put([Action.set_selection, selection[:-1]])
@@ -283,10 +285,7 @@ class Module(ModuleBase):
             # Remove station count from searchterm
             searchTerm = selection[1]['value'][:selection[1]['value'].rfind('(')].rstrip()
 
-            # Remove station info from station name
-            stationName = selection[2]['value'][:selection[2]['value'].rfind('(')].rstrip()
-
-            if self._play_station(self._menu_to_type(selection[0]['value']), searchTerm, stationName):
+            if self._play_station(self._menu_to_type(selection[0]['value']), searchTerm, selection[2]['value']):
                 self.q.put([Action.close])
             else:
                 self.q.put([Action.set_selection, selection[:-1]])
