@@ -171,7 +171,6 @@ class Module(ModuleBase):
             if self.settings['_api_version'] >= [0, 3, 1]:
                 self.q.put([Action.set_entry_info, entry['name'], "<b>{}</b><br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/><b>Homepage: </b><a href='{}'>{}</a>".format(html.escape(entry['name']), html.escape(entry['bitrate']), html.escape(entry['codec']), html.escape(entry['language']), "{}, {}".format(html.escape(entry['state']), html.escape(entry['country'])) if entry['state'] else html.escape(entry['country']), html.escape(", ".join(entry['tags'].split(",")) if entry['tags'] else "None"), html.escape(entry['homepage']), html.escape(entry['homepage']))])
 
-
     def _play_station(self, byType, searchTerm, stationName):
         self._stop_playing()
 
@@ -184,10 +183,11 @@ class Module(ModuleBase):
 
         for station in cache['data']:
             if station['name'] == stationName:
-                stationId = station['id']
+                station_id = station['id']
+                station_info = station
                 break
 
-        response = self._request_data('url/{}'.format(stationId), version=2)
+        response = self._request_data('url/{}'.format(station_id), version=2)
 
         if response['ok'] == 'false':
             self.q.put([Action.add_error, response['message']])
@@ -195,10 +195,13 @@ class Module(ModuleBase):
 
         # TODO: Replace ffplay with something more easily scriptable that
         # preferrably notifies us of song changes on the station.
-        self.nowPlaying = {'id': stationId,
+        self.nowPlaying = {'id': station_id,
                            'name': stationName,
                            'url': response['url'],
                            'process': None}
+
+        if self.settings['_api_version'] >= [0, 6, 0]:
+            self.q.put([Action.set_base_info, "<b>Tuned into:</b><br/>{}<br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/><b>Homepage: </b><a href='{}'>{}</a>".format(html.escape(station_info['name']), html.escape(station_info['bitrate']), html.escape(station_info['codec']), html.escape(station_info['language']), "{}, {}".format(html.escape(station_info['state']), html.escape(station_info['country'])) if station_info['state'] else html.escape(station_info['country']), html.escape(", ".join(station_info['tags'].split(",")) if station_info['tags'] else "None"), html.escape(station_info['homepage']), html.escape(station_info['homepage']))])
 
         self._toggle_mute()
 
@@ -218,6 +221,8 @@ class Module(ModuleBase):
                 os.kill(self.nowPlaying['process'].pid, SIGTERM)
                 self.nowPlaying['process'] = None
                 self.q.put([Action.set_header, 'Tuned into {} (muted)'.format(self.nowPlaying['name'])])
+                if self.settings['_api_version'] >= [0, 6, 0]:
+                    self.q.put([Action.set_base_context, ["Unmute", "Stop", "Vote up"]])
             else:
                 self.q.put([Action.set_header, 'Tuned into {}'.format(self.nowPlaying['name'])])
                 self.nowPlaying['process'] = Popen(['ffplay',
@@ -225,6 +230,8 @@ class Module(ModuleBase):
                                                     '-nostats',
                                                     '-loglevel', '0',
                                                     self.nowPlaying['url']])
+                if self.settings['_api_version'] >= [0, 6, 0]:
+                    self.q.put([Action.set_base_context, ["Mute", "Stop", "Vote up"]])
 
     def _stop_playing(self):
         if self.nowPlaying:
@@ -232,6 +239,9 @@ class Module(ModuleBase):
                 os.kill(self.nowPlaying['process'].pid, SIGTERM)
             self.nowPlaying = None
             self.q.put([Action.set_header])
+            if self.settings['_api_version'] >= [0, 6, 0]:
+                self.q.put([Action.set_base_info])
+                self.q.put([Action.set_base_context])
 
     def _vote_station(self):
         result = self._request_data('vote/{}'.format(self.nowPlaying['id']))
@@ -244,6 +254,16 @@ class Module(ModuleBase):
         self._stop_playing()
 
     def selection_made(self, selection):
+        if self.settings['_api_version'] >= [0, 6, 0] and len(selection) > 0 and selection[-1]['type'] == SelectionType.none:
+            if selection[-1]['context_option'] in ['Mute', 'Unmute']:
+                self._toggle_mute()
+            elif selection[-1]['context_option'] == 'Stop':
+                self._stop_playing()
+            elif selection[-1]['context_option'] == 'Vote up':
+                 self._vote_station()
+            self.q.put([Action.set_selection, selection[:-1]])
+            return
+
         self.q.put([Action.replace_command_list, []])
         if len(selection) == 0:
             self.q.put([Action.replace_entry_list, []])
