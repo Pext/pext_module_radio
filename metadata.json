@@ -16,5 +16,9 @@
     "name": "useragent",
     "description": "User Agent",
     "default": "Pext RadioBrowser/Development"
-  }]
+  }],
+  "platforms": [
+    "Linux",
+    "Darwin"
+  ]
 }
