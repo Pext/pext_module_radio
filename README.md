@@ -17,5 +17,9 @@ internet radio stations listed on it.
 
     sudo dnf install python3 ffmpeg
 
+## macOS
+
+    brew install ffmpeg --with-sdl2
+
 # License
 GPLv3+.
