@@ -1,12 +1,11 @@
 {
-  "name": "radiobrowser",
+  "name": "Radio Browser",
   "developer": "Sylvia van Os (Pext lead developer)",
   "description": "Allows Pext to play internet radio",
   "homepage": "https://pext.hackerchick.me/",
   "license": "GPL-3.0+",
   "git_urls": [
-    "https://github.com/Pext/pext_module_radiobrowser",
-    "https://notabug.org/Pext/pext_module_radiobrowser"
+    "https://github.com/Pext/pext_module_radiobrowser"
   ],
   "settings": [{
     "name": "baseUrl",
