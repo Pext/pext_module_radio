@@ -1,5 +1,6 @@
 {
-  "name": "Radio Browser",
+  "id": "pext.module.radio",
+  "name": "Radio",
   "developer": "Sylvia van Os (Pext lead developer)",
   "description": "Allows Pext to play internet radio",
   "homepage": "https://pext.hackerchick.me/",
