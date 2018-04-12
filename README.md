@@ -1,25 +1,36 @@
 # RadioBrowser module for Pext
-This module allows [Pext](https://github.com/Pext/Pext) to browse 
-[RadioBrowser](http://www.radio-browser.info/), tune into and vote for 
+
+This module allows [Pext](https://github.com/Pext/Pext) to browse
+[RadioBrowser](http://www.radio-browser.info/), tune into and vote for
 internet radio stations listed on it.
 
-# Supported flags
-- baseUrl: Use a custom API base Url (default: http://www.radio-browser.info/webservice)
+## Supported flags
+
+- baseUrl: Use a custom API base Url (default: <http://www.radio-browser.info/webservice>)
 - useragent: Use a custom User Agent (default: Pext RadioBrowser/Development)
 
-# Dependencies
-## Debian
+## Dependencies
 
-    sudo apt-get install python3 ffmpeg
+### Debian
 
-## Fedora
+```sh
+sudo apt-get install python3 ffmpeg
+```
+
+### Fedora
+
 *Note: ffmpeg is not in the default Fedora repositories due to patent concerns*
 
-    sudo dnf install python3 ffmpeg
+```sh
+sudo dnf install python3 ffmpeg
+```
 
-## macOS
+### macOS
 
-    brew install ffmpeg --with-sdl2
+```sh
+brew install ffmpeg --with-sdl2
+```
 
-# License
+## License
+
 GPLv3+.
