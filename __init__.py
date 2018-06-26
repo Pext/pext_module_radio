@@ -15,6 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import gettext
 import html
 import json
 import os
@@ -31,6 +32,14 @@ from pext_helpers import Action, SelectionType
 
 class Module(ModuleBase):
     def init(self, settings, q):
+        try:
+            lang = gettext.translation('pext_module_radio', localedir=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'locale'), languages=[settings['_locale']])
+        except FileNotFoundError:
+            lang = gettext.NullTranslations()
+            print("No {} translation available for pext_module_radio".format(settings['_locale']))
+
+        lang.install()
+
         self.baseUrl = 'http://www.radio-browser.info/webservice' if ('baseurl' not in settings) else settings['baseurl']
 
         self.useragent = 'Pext RadioBrowser/Development' if ('useragent' not in settings) else settings['useragent']
@@ -55,7 +64,7 @@ class Module(ModuleBase):
         self.nowPlaying = None
 
         if not which("ffplay"):
-            self.q.put([Action.critical_error, "ffplay is not installed, please install it."])
+            self.q.put([Action.critical_error, _("ffplay is not installed, please install it.")])
             return
 
         self._get_entries()
@@ -87,21 +96,21 @@ class Module(ModuleBase):
             return 1
 
     def _menu_to_type(self, text):
-        if text == 'By Country':
+        if text == _('By Country'):
             return 'countries'
-        elif text == 'By Codec':
+        elif text == _('By Codec'):
             return 'codecs'
-        elif text == 'By Language':
+        elif text == _('By Language'):
             return 'languages'
-        elif text == 'By Tags':
+        elif text == _('By Tags'):
             return 'tags'
-        elif text == 'By Votes':
+        elif text == _('By Votes'):
             return 'topvote'
-        elif text == 'By Most Tune-Ins':
+        elif text == _('By Most Tune-Ins'):
             return 'topclick'
-        elif text == 'By Most Recent Listener':
+        elif text == _('By Most Recent Listener'):
             return 'lastclick'
-        elif text == 'By Most Recent Change':
+        elif text == _('By Most Recent Change'):
             return 'lastchange'
         else:
             raise ValueError("Invalid text")
@@ -127,22 +136,22 @@ class Module(ModuleBase):
             raise ValueError("Invalid type")
 
     def _get_entries(self):
-        self.q.put([Action.add_entry, 'By Country'])
-        self.q.put([Action.add_entry, 'By Codec'])
-        self.q.put([Action.add_entry, 'By Language'])
-        self.q.put([Action.add_entry, 'By Tags'])
-        self.q.put([Action.add_entry, 'By Votes'])
-        self.q.put([Action.add_entry, 'By Most Tune-Ins'])
-        self.q.put([Action.add_entry, 'By Most Recent Listener'])
-        self.q.put([Action.add_entry, 'By Most Recent Change'])
+        self.q.put([Action.add_entry, _('By Country')])
+        self.q.put([Action.add_entry, _('By Codec')])
+        self.q.put([Action.add_entry, _('By Language')])
+        self.q.put([Action.add_entry, _('By Tags')])
+        self.q.put([Action.add_entry, _('By Votes')])
+        self.q.put([Action.add_entry, _('By Most Tune-Ins')])
+        self.q.put([Action.add_entry, _('By Most Recent Listener')])
+        self.q.put([Action.add_entry, _('By Most Recent Change')])
         if self.nowPlaying:
             if self.nowPlaying['process']:
-                self.q.put([Action.add_command, 'mute'])
+                self.q.put([Action.add_command, _('mute')])
             else:
-                self.q.put([Action.add_command, 'unmute'])
+                self.q.put([Action.add_command, _('unmute')])
 
-            self.q.put([Action.add_command, 'stop'])
-            self.q.put([Action.add_command, 'vote'])
+            self.q.put([Action.add_command, _('stop')])
+            self.q.put([Action.add_command, _('vote')])
 
     def _get_list(self, path):
         self.q.put([Action.replace_entry_list, []])
@@ -151,7 +160,7 @@ class Module(ModuleBase):
             self.cached[path] = {'time': time.time(), 'data': self._request_data(path)}
 
         for entry in self.cached[path]['data']:
-            self.q.put([Action.add_entry, '{} ({} stations)'.format(entry['name'], entry['stationcount'])])
+            self.q.put([Action.add_entry, _('{} ({} stations)').format(entry['name'], entry['stationcount'])])
 
     def _get_stations(self, byType, searchTerm):
         self.q.put([Action.replace_entry_list, []])
@@ -169,7 +178,7 @@ class Module(ModuleBase):
         for entry in cache['data']:
             self.q.put([Action.add_entry, entry['name']])
             if self.settings['_api_version'] >= [0, 3, 1]:
-                self.q.put([Action.set_entry_info, entry['name'], "<b>{}</b><br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/><b>Homepage: </b><a href='{}'>{}</a>".format(html.escape(entry['name']), html.escape(entry['bitrate']), html.escape(entry['codec']), html.escape(entry['language']), "{}, {}".format(html.escape(entry['state']), html.escape(entry['country'])) if entry['state'] else html.escape(entry['country']), html.escape(", ".join(entry['tags'].split(",")) if entry['tags'] else "None"), html.escape(entry['homepage']), html.escape(entry['homepage']))])
+                self.q.put([Action.set_entry_info, entry['name'], _("<b>{}</b><br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/><b>Homepage: </b><a href='{}'>{}</a>").format(html.escape(entry['name']), html.escape(entry['bitrate']), html.escape(entry['codec']), html.escape(entry['language']), "{}, {}".format(html.escape(entry['state']), html.escape(entry['country'])) if entry['state'] else html.escape(entry['country']), html.escape(", ".join(entry['tags'].split(",")) if entry['tags'] else "None"), html.escape(entry['homepage']), html.escape(entry['homepage']))])
 
     def _play_station(self, byType, searchTerm, stationName):
         self._stop_playing()
@@ -201,7 +210,7 @@ class Module(ModuleBase):
                            'process': None}
 
         if self.settings['_api_version'] >= [0, 6, 0]:
-            self.q.put([Action.set_base_info, "<b>Tuned into:</b><br/>{}<br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/><b>Homepage: </b><a href='{}'>{}</a>".format(html.escape(station_info['name']), html.escape(station_info['bitrate']), html.escape(station_info['codec']), html.escape(station_info['language']), "{}, {}".format(html.escape(station_info['state']), html.escape(station_info['country'])) if station_info['state'] else html.escape(station_info['country']), html.escape(", ".join(station_info['tags'].split(",")) if station_info['tags'] else "None"), html.escape(station_info['homepage']), html.escape(station_info['homepage']))])
+            self.q.put([Action.set_base_info, _("<b>Tuned into:</b><br/>{}<br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/><b>Homepage: </b><a href='{}'>{}</a>").format(html.escape(station_info['name']), html.escape(station_info['bitrate']), html.escape(station_info['codec']), html.escape(station_info['language']), "{}, {}".format(html.escape(station_info['state']), html.escape(station_info['country'])) if station_info['state'] else html.escape(station_info['country']), html.escape(", ".join(station_info['tags'].split(",")) if station_info['tags'] else "None"), html.escape(station_info['homepage']), html.escape(station_info['homepage']))])
 
         self._toggle_mute()
 
@@ -220,18 +229,18 @@ class Module(ModuleBase):
             if self.nowPlaying['process']:
                 os.kill(self.nowPlaying['process'].pid, SIGTERM)
                 self.nowPlaying['process'] = None
-                self.q.put([Action.set_header, 'Tuned into {} (muted)'.format(self.nowPlaying['name'])])
+                self.q.put([Action.set_header, _('Tuned into {} (muted)').format(self.nowPlaying['name'])])
                 if self.settings['_api_version'] >= [0, 6, 0]:
-                    self.q.put([Action.set_base_context, ["Unmute", "Stop", "Vote up"]])
+                    self.q.put([Action.set_base_context, [_("Unmute"), _("Stop"), _("Vote up")]])
             else:
-                self.q.put([Action.set_header, 'Tuned into {}'.format(self.nowPlaying['name'])])
+                self.q.put([Action.set_header, _('Tuned into {}').format(self.nowPlaying['name'])])
                 self.nowPlaying['process'] = Popen(['ffplay',
                                                     '-nodisp',
                                                     '-nostats',
                                                     '-loglevel', '0',
                                                     self.nowPlaying['url']])
                 if self.settings['_api_version'] >= [0, 6, 0]:
-                    self.q.put([Action.set_base_context, ["Mute", "Stop", "Vote up"]])
+                    self.q.put([Action.set_base_context, [_("Mute"), _("Stop"), _("Vote up")]])
 
     def _stop_playing(self):
         if self.nowPlaying:
@@ -246,20 +255,20 @@ class Module(ModuleBase):
     def _vote_station(self):
         result = self._request_data('vote/{}'.format(self.nowPlaying['id']))
         if result['ok'] == "true":
-            self.q.put([Action.add_message, 'Voted for station {}'.format(self.nowPlaying['name'])])
+            self.q.put([Action.add_message, _('Voted for station {}').format(self.nowPlaying['name'])])
         else:
-            self.q.put([Action.add_error, 'Failed to vote for {}: {}'.format(self.nowPlaying['name'], result['message'])])
+            self.q.put([Action.add_error, _('Failed to vote for {}: {}').format(self.nowPlaying['name'], result['message'])])
 
     def stop(self):
         self._stop_playing()
 
     def selection_made(self, selection):
         if self.settings['_api_version'] >= [0, 6, 0] and len(selection) > 0 and selection[-1]['type'] == SelectionType.none:
-            if selection[-1]['context_option'] in ['Mute', 'Unmute']:
+            if selection[-1]['context_option'] in [_('Mute'), _('Unmute')]:
                 self._toggle_mute()
-            elif selection[-1]['context_option'] == 'Stop':
+            elif selection[-1]['context_option'] == _('Stop'):
                 self._stop_playing()
-            elif selection[-1]['context_option'] == 'Vote up':
+            elif selection[-1]['context_option'] == _('Vote up'):
                  self._vote_station()
             self.q.put([Action.set_selection, selection[:-1]])
             return
@@ -270,11 +279,11 @@ class Module(ModuleBase):
             self._get_entries()
         elif len(selection) == 1:
             if selection[0]['type'] == SelectionType.command:
-                if selection[0]['value'] in ['mute', 'unmute']:
+                if selection[0]['value'] in [_('mute'), _('unmute')]:
                     self._toggle_mute()
-                elif selection[0]['value'] == 'stop':
+                elif selection[0]['value'] == _('stop'):
                     self._stop_playing()
-                elif selection[0]['value'] == 'vote':
+                elif selection[0]['value'] == _('vote'):
                     self._vote_station()
 
                 self.q.put([Action.set_selection, []])
@@ -310,7 +319,7 @@ class Module(ModuleBase):
             else:
                 self.q.put([Action.set_selection, selection[:-1]])
         else:
-            self.q.put([Action.critical_error, 'Unexpected selection_made value: {}'.format(selection)])
+            self.q.put([Action.critical_error, _('Unexpected selection_made value: {}').format(selection)])
 
     def process_response(self, response):
         pass
