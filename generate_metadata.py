@@ -2,7 +2,7 @@
 
 # Copyright (C) 2016 - 2018 Sylvia van Os <sylvia@hackerchick.me>
 #
-# Pext radiobrowser module is free software: you can redistribute it and/or modify
+# Pext radio module is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
@@ -29,7 +29,7 @@ for language in languages:
             lang = gettext.translation('pext_module_radio', localedir=os.path.join('.', 'locale'), languages=[language])
         except FileNotFoundError:
             lang = gettext.NullTranslations()
-            print("No {} metadata translation available for pext_module_radiobrowser".format(language))
+            print("No {} metadata translation available for pext_module_radio".format(language))
             continue
 
     lang.install()
@@ -42,7 +42,7 @@ for language in languages:
                'description': _('Allows Pext to play internet radio'),
                'homepage': 'https://pext.hackerchick.me/',
                'license': 'GPL-3.0+',
-               'git_urls': ['https://github.com/Pext/pext_module_radiobrowser'],
+               'git_urls': ['https://github.com/Pext/pext_module_radio'],
                'settings': [{'name': 'baseUrl',
                              'description': _('API base URL'),
                              'defaults': 'http://www.radio-browser.info/webservice'
