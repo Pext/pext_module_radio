@@ -6,72 +6,73 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2018-09-04 21:15+CEST\n"
-"PO-Revision-Date: 2018-09-04 21:18+0200\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2018-10-08 09:25+0000\n"
+"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/pext/"
+"pext-radio-module/nl/>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.2\n"
 "Generated-By: pygettext.py 1.5\n"
-"X-Generator: Poedit 2.1.1\n"
-"Last-Translator: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: nl\n"
 
 #: __init__.py:67
 msgid "ffplay is not installed, please install it."
-msgstr ""
+msgstr "ffplay is niet geïnstalleerd; installeer het."
 
 #: __init__.py:99 __init__.py:139
 msgid "By Country"
-msgstr ""
+msgstr "Op land"
 
 #: __init__.py:101 __init__.py:140
 msgid "By Codec"
-msgstr ""
+msgstr "Op codec"
 
 #: __init__.py:103 __init__.py:141
 msgid "By Language"
-msgstr ""
+msgstr "Op taal"
 
 #: __init__.py:105 __init__.py:142
 msgid "By Tags"
-msgstr ""
+msgstr "Op labels"
 
 #: __init__.py:107 __init__.py:143
 msgid "By Votes"
-msgstr ""
+msgstr "Op aantal stemmen"
 
 #: __init__.py:109 __init__.py:144
 msgid "By Most Tune-Ins"
-msgstr ""
+msgstr "Op meest beluisterd"
 
 #: __init__.py:111 __init__.py:145
 msgid "By Most Recent Listener"
-msgstr ""
+msgstr "Op meest recent beluisterd"
 
 #: __init__.py:113 __init__.py:146
 msgid "By Most Recent Change"
-msgstr ""
+msgstr "Op meest recent gewijzigd"
 
 #: __init__.py:149 __init__.py:282
 msgid "mute"
-msgstr ""
+msgstr "dempen"
 
 #: __init__.py:151 __init__.py:282
 msgid "unmute"
-msgstr ""
+msgstr "ontdempen"
 
 #: __init__.py:153 __init__.py:284
 msgid "stop"
-msgstr ""
+msgstr "stoppen"
 
 #: __init__.py:154 __init__.py:286
 msgid "vote"
-msgstr ""
+msgstr "stemmen"
 
 #: __init__.py:163
 msgid "{} ({} stations)"
-msgstr ""
+msgstr "{} ({} stations)"
 
 #: __init__.py:181
 msgid ""
@@ -79,6 +80,9 @@ msgid ""
 "><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/"
 "><b>Homepage: </b><a href='{}'>{}</a>"
 msgstr ""
+"<b>{}</b><br/><br/><b>Bitsnelheid: </b>{} kbps<br/><b>Codec: </b>{}<br/"
+"><b>Taal: </b>{}<br/><b>Locatie: </b>{}<br/><b>Labels: </b>{}<br/><b>Website:"
+" </b><a href='{}'>{}</a>"
 
 #: __init__.py:213
 msgid ""
@@ -86,55 +90,58 @@ msgid ""
 "b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/"
 "><b>Homepage: </b><a href='{}'>{}</a>"
 msgstr ""
+"<b>Je luistert naar:</b><br/>{}<br/><br/><b>Bitsnelheid: </b>{} kbps<br/"
+"><b>Codec: </b>{}<br/><b>Taal: </b>{}<br/><b>Locatie: </b>{}<br/><b>Labels: "
+"</b>{}<br/><b>Website: </b><a href='{}'>{}</a>"
 
 #: __init__.py:232
 msgid "Tuned into {} (muted)"
-msgstr ""
+msgstr "Je luistert naar {} (gedempt)"
 
 #: __init__.py:234 __init__.py:243 __init__.py:269
 msgid "Stop"
-msgstr ""
+msgstr "Stoppen"
 
 #: __init__.py:234 __init__.py:243 __init__.py:271
 msgid "Vote up"
-msgstr ""
+msgstr "Omhoog stemmen"
 
 #: __init__.py:234 __init__.py:267
 msgid "Unmute"
-msgstr ""
+msgstr "Ontdempen"
 
 #: __init__.py:236
 msgid "Tuned into {}"
-msgstr ""
+msgstr "Je luistert naar {}"
 
 #: __init__.py:243 __init__.py:267
 msgid "Mute"
-msgstr ""
+msgstr "Dempen"
 
 #: __init__.py:258
 msgid "Voted for station {}"
-msgstr ""
+msgstr "Gestemd op {}"
 
 #: __init__.py:260
 msgid "Failed to vote for {}: {}"
-msgstr ""
+msgstr "Stemmen op {} mislukt: {}"
 
 #: __init__.py:322
 msgid "Unexpected selection_made value: {}"
-msgstr ""
+msgstr "Onverwachte selection_made-waarde: {}"
 
 #: generate_metadata.py:40
 msgid "Radio"
-msgstr ""
+msgstr "Radio"
 
 #: generate_metadata.py:42
 msgid "Allows Pext to play internet radio"
-msgstr ""
+msgstr "Stelt Plex in staat om internetradiostations af te spelen"
 
 #: generate_metadata.py:47
 msgid "API base URL"
-msgstr ""
+msgstr "API-basis-URL"
 
 #: generate_metadata.py:51
 msgid "User Agent"
-msgstr ""
+msgstr "Gebruikersagent"
