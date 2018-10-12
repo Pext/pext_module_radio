@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2018-09-04 21:15+CEST\n"
-"PO-Revision-Date: 2018-10-08 09:25+0000\n"
-"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
+"PO-Revision-Date: 2018-10-13 05:26+0000\n"
+"Last-Translator: Sylvia van Os <sylvia@hackerchick.me>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/pext/"
 "pext-radio-module/nl/>\n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.2\n"
+"X-Generator: Weblate 3.2.1\n"
 "Generated-By: pygettext.py 1.5\n"
 
 #: __init__.py:67
@@ -136,7 +136,7 @@ msgstr "Radio"
 
 #: generate_metadata.py:42
 msgid "Allows Pext to play internet radio"
-msgstr "Stelt Plex in staat om internetradiostations af te spelen"
+msgstr "Stelt Pext in staat om internetradiostations af te spelen"
 
 #: generate_metadata.py:47
 msgid "API base URL"
