@@ -6,127 +6,137 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2018-09-04 21:15+CEST\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2019-02-05 07:05+0000\n"
+"Last-Translator: Henley Garcia <henleygarcia54@gmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/pext/"
+"pext-radio-module/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.5-dev\n"
 "Generated-By: pygettext.py 1.5\n"
 
 #: __init__.py:67
 msgid "ffplay is not installed, please install it."
-msgstr ""
+msgstr "ffplay no está instalado, por favor instálalo."
 
 #: __init__.py:99 __init__.py:139
 msgid "By Country"
-msgstr ""
+msgstr "Por país"
 
 #: __init__.py:101 __init__.py:140
 msgid "By Codec"
-msgstr ""
+msgstr "Por codec"
 
 #: __init__.py:103 __init__.py:141
 msgid "By Language"
-msgstr ""
+msgstr "Por idioma"
 
 #: __init__.py:105 __init__.py:142
 msgid "By Tags"
-msgstr ""
+msgstr "Por etiquetas"
 
 #: __init__.py:107 __init__.py:143
 msgid "By Votes"
-msgstr ""
+msgstr "Por votos"
 
 #: __init__.py:109 __init__.py:144
 msgid "By Most Tune-Ins"
-msgstr ""
+msgstr "Por la mayoría de los Tune-Ins"
 
 #: __init__.py:111 __init__.py:145
 msgid "By Most Recent Listener"
-msgstr ""
+msgstr "Por el oyente más reciente"
 
 #: __init__.py:113 __init__.py:146
 msgid "By Most Recent Change"
-msgstr ""
+msgstr "Por cambio más reciente"
 
 #: __init__.py:149 __init__.py:282
 msgid "mute"
-msgstr ""
+msgstr "apagar"
 
 #: __init__.py:151 __init__.py:282
 msgid "unmute"
-msgstr ""
+msgstr "no silenciar"
 
 #: __init__.py:153 __init__.py:284
 msgid "stop"
-msgstr ""
+msgstr "parar"
 
 #: __init__.py:154 __init__.py:286
 msgid "vote"
-msgstr ""
+msgstr "votar"
 
 #: __init__.py:163
 msgid "{} ({} stations)"
-msgstr ""
+msgstr "{} ({} estaciones)"
 
 #: __init__.py:181
 msgid "<b>{}</b><br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/><b>Homepage: </b><a href='{}'>{}</a>"
 msgstr ""
+"<b> {} </b> <br/> <br/> <b> Bitrate: </b> {} kbps <br/> <b> Codec: </b> {} <"
+"br/> <b > Idioma: </b> {} <br/> <b> Ubicación: </b> {} <br/> <b> Etiquetas: "
+"</b> {} <br/> <b> Página de inicio: </ b> <a href='{}'> {} </a>"
 
 #: __init__.py:213
 msgid "<b>Tuned into:</b><br/>{}<br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/><b>Homepage: </b><a href='{}'>{}</a>"
 msgstr ""
+"<b> 1 En sintonizado con: </b> 2 <br/> 3 {} <br/> 4 <br/> 5 <b> 6Bitrate: "
+"</b> 7 {} kbps <br/> 8 <b> 9Codec : </b> 0 {} <br/> <b> Idioma: </b> {} <br/>"
+" <b> Ubicación: </b> {} <br/> <b> Etiquetas: </ b > {} <br/> <b> Página de "
+"inicio: </b> <a href='{}'> {} </a>"
 
 #: __init__.py:232
 msgid "Tuned into {} (muted)"
-msgstr ""
+msgstr "Sintonizado en {} (silenciado)"
 
 #: __init__.py:234 __init__.py:243 __init__.py:269
 msgid "Stop"
-msgstr ""
+msgstr "Detener"
 
 #: __init__.py:234 __init__.py:243 __init__.py:271
 msgid "Vote up"
-msgstr ""
+msgstr "Vota arriba"
 
 #: __init__.py:234 __init__.py:267
 msgid "Unmute"
-msgstr ""
+msgstr "No silenciar"
 
 #: __init__.py:236
 msgid "Tuned into {}"
-msgstr ""
+msgstr "Sintonizado en {}"
 
 #: __init__.py:243 __init__.py:267
 msgid "Mute"
-msgstr ""
+msgstr "apagar"
 
 #: __init__.py:258
 msgid "Voted for station {}"
-msgstr ""
+msgstr "Votado por la estación {}"
 
 #: __init__.py:260
 msgid "Failed to vote for {}: {}"
-msgstr ""
+msgstr "No se pudo votar por {}: {}"
 
 #: __init__.py:322
 msgid "Unexpected selection_made value: {}"
-msgstr ""
+msgstr "Valor de selection_made inesperado: {}"
 
 #: generate_metadata.py:40
 msgid "Radio"
-msgstr ""
+msgstr "Radio"
 
 #: generate_metadata.py:42
 msgid "Allows Pext to play internet radio"
-msgstr ""
+msgstr "Permite a Pext reproducir radio por internet"
 
 #: generate_metadata.py:47
 msgid "API base URL"
-msgstr ""
+msgstr "URL base de API"
 
 #: generate_metadata.py:51
 msgid "User Agent"
-msgstr ""
+msgstr "Agente de usuario"
