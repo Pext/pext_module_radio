@@ -1,5 +1,5 @@
 {
-  "description": "Allows Pext to play internet radio",
+  "description": "\u5141\u8a31 Pext \u64ad\u653e\u7db2\u8def\u5ee3\u64ad",
   "developer": "Sylvia van Os",
   "git_urls": [
     "https://github.com/Pext/pext_module_radio"
@@ -7,7 +7,7 @@
   "homepage": "https://pext.hackerchick.me/",
   "id": "pext.module.radio",
   "license": "GPL-3.0+",
-  "name": "Radio",
+  "name": "\u7121\u7dda\u96fb\u5ee3\u64ad",
   "platforms": [
     "Linux",
     "Darwin"
@@ -15,12 +15,12 @@
   "settings": [
     {
       "defaults": "http://www.radio-browser.info/webservice",
-      "description": "API base URL",
+      "description": "API \u57fa\u790e\u7db2\u5740",
       "name": "baseUrl"
     },
     {
       "default": "Pext RadioBrowser/Development",
-      "description": "User Agent",
+      "description": "\u4f7f\u7528\u8005\u4ee3\u7406",
       "name": "useragent"
     }
   ]

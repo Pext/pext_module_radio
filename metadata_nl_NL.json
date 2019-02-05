@@ -1,5 +1,5 @@
 {
-  "description": "Allows Pext to play internet radio",
+  "description": "Stelt Pext in staat om internetradiostations af te spelen",
   "developer": "Sylvia van Os",
   "git_urls": [
     "https://github.com/Pext/pext_module_radio"
@@ -15,12 +15,12 @@
   "settings": [
     {
       "defaults": "http://www.radio-browser.info/webservice",
-      "description": "API base URL",
+      "description": "API-basis-URL",
       "name": "baseUrl"
     },
     {
       "default": "Pext RadioBrowser/Development",
-      "description": "User Agent",
+      "description": "Gebruikersagent",
       "name": "useragent"
     }
   ]
