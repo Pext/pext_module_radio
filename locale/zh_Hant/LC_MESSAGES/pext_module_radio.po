@@ -4,144 +4,138 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2018-09-04 21:15+CEST\n"
-"PO-Revision-Date: 2018-10-13 05:26+0000\n"
-"Last-Translator: Sylvia van Os <sylvia@hackerchick.me>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/pext/"
-"pext-radio-module/nl/>\n"
-"Language: nl\n"
+"PO-Revision-Date: 2019-01-13 18:07+0000\n"
+"Last-Translator: Louies <louies0623@gmail.com>\n"
+"Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
+"pext/pext-radio-module/zh_Hant/>\n"
+"Language: zh_Hant\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.2.1\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.4-dev\n"
 "Generated-By: pygettext.py 1.5\n"
 
 #: __init__.py:67
 msgid "ffplay is not installed, please install it."
-msgstr "ffplay is niet geïnstalleerd; installeer het."
+msgstr "未安裝 ffplay，請安裝。"
 
 #: __init__.py:99 __init__.py:139
 msgid "By Country"
-msgstr "Op land"
+msgstr "透過國家"
 
 #: __init__.py:101 __init__.py:140
 msgid "By Codec"
-msgstr "Op codec"
+msgstr "透過轉碼"
 
 #: __init__.py:103 __init__.py:141
 msgid "By Language"
-msgstr "Op taal"
+msgstr "透過語言"
 
 #: __init__.py:105 __init__.py:142
 msgid "By Tags"
-msgstr "Op labels"
+msgstr "透過標籤"
 
 #: __init__.py:107 __init__.py:143
 msgid "By Votes"
-msgstr "Op aantal stemmen"
+msgstr "透過投票"
 
 #: __init__.py:109 __init__.py:144
 msgid "By Most Tune-Ins"
-msgstr "Op meest beluisterd"
+msgstr "透過大多數 Tune-Ins"
 
 #: __init__.py:111 __init__.py:145
 msgid "By Most Recent Listener"
-msgstr "Op meest recent beluisterd"
+msgstr "透過最近的聽眾"
 
 #: __init__.py:113 __init__.py:146
 msgid "By Most Recent Change"
-msgstr "Op meest recent gewijzigd"
+msgstr "透過最近的更改"
 
 #: __init__.py:149 __init__.py:282
 msgid "mute"
-msgstr "dempen"
+msgstr "靜音"
 
 #: __init__.py:151 __init__.py:282
 msgid "unmute"
-msgstr "ontdempen"
+msgstr "非靜音"
 
 #: __init__.py:153 __init__.py:284
 msgid "stop"
-msgstr "stoppen"
+msgstr "停止"
 
 #: __init__.py:154 __init__.py:286
 msgid "vote"
-msgstr "stemmen"
+msgstr "投票"
 
 #: __init__.py:163
 msgid "{} ({} stations)"
-msgstr "{} ({} stations)"
+msgstr "{} ({}站)"
 
 #: __init__.py:181
-msgid ""
-"<b>{}</b><br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/"
-"><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/"
-"><b>Homepage: </b><a href='{}'>{}</a>"
+msgid "<b>{}</b><br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/><b>Homepage: </b><a href='{}'>{}</a>"
 msgstr ""
-"<b>{}</b><br/><br/><b>Bitsnelheid: </b>{} kbps<br/><b>Codec: </b>{}<br/"
-"><b>Taal: </b>{}<br/><b>Locatie: </b>{}<br/><b>Labels: </b>{}<br/><b>Website:"
-" </b><a href='{}'>{}</a>"
+"<b>{}</b><br/><br/><b>位元速率: </b>{} kbps<br/><b>Codec: </b>{}<br/><b>語言: "
+"</b>{}<br/><b>位置: </b>{}<br/><b>Tags: </b>{}<br/><b>網頁: </b><a "
+"href='{}'>{}</a>"
 
 #: __init__.py:213
-msgid ""
-"<b>Tuned into:</b><br/>{}<br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </"
-"b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/"
-"><b>Homepage: </b><a href='{}'>{}</a>"
+msgid "<b>Tuned into:</b><br/>{}<br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/><b>Homepage: </b><a href='{}'>{}</a>"
 msgstr ""
-"<b>Je luistert naar:</b><br/>{}<br/><br/><b>Bitsnelheid: </b>{} kbps<br/"
-"><b>Codec: </b>{}<br/><b>Taal: </b>{}<br/><b>Locatie: </b>{}<br/><b>Labels: "
-"</b>{}<br/><b>Website: </b><a href='{}'>{}</a>"
+"<b>調整為:</b><br/>{}<br/><br/><b>位元速率: </b>{} kbps<br/><b>Codec: </b>{}<br/"
+"><b>語言: </b>{}<br/><b>位置: </b>{}<br/><b>標籤: </b>{}<br/><b>網頁: </b><a "
+"href='{}'>{}</a>"
 
 #: __init__.py:232
 msgid "Tuned into {} (muted)"
-msgstr "Je luistert naar {} (gedempt)"
+msgstr "調到（靜音）"
 
 #: __init__.py:234 __init__.py:243 __init__.py:269
 msgid "Stop"
-msgstr "Stoppen"
+msgstr "停止"
 
 #: __init__.py:234 __init__.py:243 __init__.py:271
 msgid "Vote up"
-msgstr "Omhoog stemmen"
+msgstr "投票表決"
 
 #: __init__.py:234 __init__.py:267
 msgid "Unmute"
-msgstr "Ontdempen"
+msgstr "取消靜音"
 
 #: __init__.py:236
 msgid "Tuned into {}"
-msgstr "Je luistert naar {}"
+msgstr "調到{}"
 
 #: __init__.py:243 __init__.py:267
 msgid "Mute"
-msgstr "Dempen"
+msgstr "靜音"
 
 #: __init__.py:258
 msgid "Voted for station {}"
-msgstr "Gestemd op {}"
+msgstr "投票支持"
 
 #: __init__.py:260
 msgid "Failed to vote for {}: {}"
-msgstr "Stemmen op {} mislukt: {}"
+msgstr "未能為：投票"
 
 #: __init__.py:322
 msgid "Unexpected selection_made value: {}"
-msgstr "Onverwachte selection_made-waarde: {}"
+msgstr "未預期的 selection_made 值：{}"
 
 #: generate_metadata.py:40
 msgid "Radio"
-msgstr "Radio"
+msgstr "無線電廣播"
 
 #: generate_metadata.py:42
 msgid "Allows Pext to play internet radio"
-msgstr "Stelt Pext in staat om internetradiostations af te spelen"
+msgstr "允許 Pext 播放網路廣播"
 
 #: generate_metadata.py:47
 msgid "API base URL"
-msgstr "API-basis-URL"
+msgstr "API 基礎網址"
 
 #: generate_metadata.py:51
 msgid "User Agent"
-msgstr "Gebruikersagent"
+msgstr "使用者代理"
