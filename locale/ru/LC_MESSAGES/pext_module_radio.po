@@ -6,38 +6,42 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2018-09-04 21:15+CEST\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2019-03-18 20:04+0000\n"
+"Last-Translator: Nelly Simkova <sk8higher@iballwasrawt.ru>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/pext/"
+"pext-radio-module/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.6-dev\n"
 "Generated-By: pygettext.py 1.5\n"
 
 #: __init__.py:67
 msgid "ffplay is not installed, please install it."
-msgstr ""
+msgstr "ffplay не установлен, пожалуйста, установите его."
 
 #: __init__.py:99 __init__.py:139
 msgid "By Country"
-msgstr ""
+msgstr "По стране"
 
 #: __init__.py:101 __init__.py:140
 msgid "By Codec"
-msgstr ""
+msgstr "По кодеку"
 
 #: __init__.py:103 __init__.py:141
 msgid "By Language"
-msgstr ""
+msgstr "По языку"
 
 #: __init__.py:105 __init__.py:142
 msgid "By Tags"
-msgstr ""
+msgstr "По тэгам"
 
 #: __init__.py:107 __init__.py:143
 msgid "By Votes"
-msgstr ""
+msgstr "По оценкам"
 
 #: __init__.py:109 __init__.py:144
 msgid "By Most Tune-Ins"
@@ -53,7 +57,7 @@ msgstr ""
 
 #: __init__.py:149 __init__.py:282
 msgid "mute"
-msgstr ""
+msgstr "заглушить"
 
 #: __init__.py:151 __init__.py:282
 msgid "unmute"
