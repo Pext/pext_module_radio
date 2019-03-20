@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-09-04 21:15+CEST\n"
+"POT-Creation-Date: 2019-03-20 19:28+CET\n"
 "PO-Revision-Date: 2019-01-13 18:07+0000\n"
 "Last-Translator: Louies <louies0623@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -54,19 +54,19 @@ msgstr "透過最近的聽眾"
 msgid "By Most Recent Change"
 msgstr "透過最近的更改"
 
-#: __init__.py:149 __init__.py:282
+#: __init__.py:149
 msgid "mute"
 msgstr "靜音"
 
-#: __init__.py:151 __init__.py:282
+#: __init__.py:151
 msgid "unmute"
 msgstr "非靜音"
 
-#: __init__.py:153 __init__.py:284
+#: __init__.py:153
 msgid "stop"
 msgstr "停止"
 
-#: __init__.py:154 __init__.py:286
+#: __init__.py:154
 msgid "vote"
 msgstr "投票"
 
@@ -75,18 +75,24 @@ msgid "{} ({} stations)"
 msgstr "{} ({}站)"
 
 #: __init__.py:181
-msgid "<b>{}</b><br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/><b>Homepage: </b><a href='{}'>{}</a>"
+msgid ""
+"<b>{}</b><br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/"
+"><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/"
+"><b>Homepage: </b><a href='{}'>{}</a>"
 msgstr ""
-"<b>{}</b><br/><br/><b>位元速率: </b>{} kbps<br/><b>Codec: </b>{}<br/><b>語言: "
-"</b>{}<br/><b>位置: </b>{}<br/><b>Tags: </b>{}<br/><b>網頁: </b><a "
+"<b>{}</b><br/><br/><b>位元速率: </b>{} kbps<br/><b>Codec: </b>{}<br/><b>語"
+"言: </b>{}<br/><b>位置: </b>{}<br/><b>Tags: </b>{}<br/><b>網頁: </b><a "
 "href='{}'>{}</a>"
 
 #: __init__.py:213
-msgid "<b>Tuned into:</b><br/>{}<br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/><b>Homepage: </b><a href='{}'>{}</a>"
+msgid ""
+"<b>Tuned into:</b><br/>{}<br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </"
+"b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/"
+"><b>Homepage: </b><a href='{}'>{}</a>"
 msgstr ""
-"<b>調整為:</b><br/>{}<br/><br/><b>位元速率: </b>{} kbps<br/><b>Codec: </b>{}<br/"
-"><b>語言: </b>{}<br/><b>位置: </b>{}<br/><b>標籤: </b>{}<br/><b>網頁: </b><a "
-"href='{}'>{}</a>"
+"<b>調整為:</b><br/>{}<br/><br/><b>位元速率: </b>{} kbps<br/><b>Codec: </b>{}"
+"<br/><b>語言: </b>{}<br/><b>位置: </b>{}<br/><b>標籤: </b>{}<br/><b>網頁: </"
+"b><a href='{}'>{}</a>"
 
 #: __init__.py:232
 msgid "Tuned into {} (muted)"
@@ -120,7 +126,7 @@ msgstr "投票支持"
 msgid "Failed to vote for {}: {}"
 msgstr "未能為：投票"
 
-#: __init__.py:322
+#: __init__.py:311
 msgid "Unexpected selection_made value: {}"
 msgstr "未預期的 selection_made 值：{}"
 

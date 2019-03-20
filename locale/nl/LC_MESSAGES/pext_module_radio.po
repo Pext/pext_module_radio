@@ -5,11 +5,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-09-04 21:15+CEST\n"
+"POT-Creation-Date: 2019-03-20 19:28+CET\n"
 "PO-Revision-Date: 2018-10-13 05:26+0000\n"
 "Last-Translator: Sylvia van Os <sylvia@hackerchick.me>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/pext/"
-"pext-radio-module/nl/>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/pext/pext-radio-"
+"module/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -54,19 +54,19 @@ msgstr "Op meest recent beluisterd"
 msgid "By Most Recent Change"
 msgstr "Op meest recent gewijzigd"
 
-#: __init__.py:149 __init__.py:282
+#: __init__.py:149
 msgid "mute"
 msgstr "dempen"
 
-#: __init__.py:151 __init__.py:282
+#: __init__.py:151
 msgid "unmute"
 msgstr "ontdempen"
 
-#: __init__.py:153 __init__.py:284
+#: __init__.py:153
 msgid "stop"
 msgstr "stoppen"
 
-#: __init__.py:154 __init__.py:286
+#: __init__.py:154
 msgid "vote"
 msgstr "stemmen"
 
@@ -81,8 +81,8 @@ msgid ""
 "><b>Homepage: </b><a href='{}'>{}</a>"
 msgstr ""
 "<b>{}</b><br/><br/><b>Bitsnelheid: </b>{} kbps<br/><b>Codec: </b>{}<br/"
-"><b>Taal: </b>{}<br/><b>Locatie: </b>{}<br/><b>Labels: </b>{}<br/><b>Website:"
-" </b><a href='{}'>{}</a>"
+"><b>Taal: </b>{}<br/><b>Locatie: </b>{}<br/><b>Labels: </b>{}<br/"
+"><b>Website: </b><a href='{}'>{}</a>"
 
 #: __init__.py:213
 msgid ""
@@ -126,7 +126,7 @@ msgstr "Gestemd op {}"
 msgid "Failed to vote for {}: {}"
 msgstr "Stemmen op {} mislukt: {}"
 
-#: __init__.py:322
+#: __init__.py:311
 msgid "Unexpected selection_made value: {}"
 msgstr "Onverwachte selection_made-waarde: {}"
 

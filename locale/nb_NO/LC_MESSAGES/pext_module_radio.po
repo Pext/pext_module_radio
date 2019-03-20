@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-09-04 21:15+CEST\n"
+"POT-Creation-Date: 2019-03-20 19:28+CET\n"
 "PO-Revision-Date: 2019-02-16 02:25+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/pext/"
@@ -55,19 +55,19 @@ msgstr "Etter mest nylige lytting"
 msgid "By Most Recent Change"
 msgstr "Etter nyligste endring"
 
-#: __init__.py:149 __init__.py:282
+#: __init__.py:149
 msgid "mute"
 msgstr "Forstum"
 
-#: __init__.py:151 __init__.py:282
+#: __init__.py:151
 msgid "unmute"
 msgstr "Opphev forstumming"
 
-#: __init__.py:153 __init__.py:284
+#: __init__.py:153
 msgid "stop"
 msgstr "Stopp"
 
-#: __init__.py:154 __init__.py:286
+#: __init__.py:154
 msgid "vote"
 msgstr "Stem"
 
@@ -77,18 +77,24 @@ msgid "{} ({} stations)"
 msgstr "{} ({}-stasjoner}"
 
 #: __init__.py:181
-msgid "<b>{}</b><br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/><b>Homepage: </b><a href='{}'>{}</a>"
+msgid ""
+"<b>{}</b><br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/"
+"><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/"
+"><b>Homepage: </b><a href='{}'>{}</a>"
 msgstr ""
-"<b>{}</b><br/><br/><b>Bitrate: </b>{} kbps<br/><b>Kodek: </b>{}<br/><b>Språk:"
-" </b>{}<br/><b>Plassering: </b>{}<br/><b>Etiketter: </b>{}<br/><b>Hjemmeside:"
-" </b><a href='{}'>{}</a>"
+"<b>{}</b><br/><br/><b>Bitrate: </b>{} kbps<br/><b>Kodek: </b>{}<br/"
+"><b>Språk: </b>{}<br/><b>Plassering: </b>{}<br/><b>Etiketter: </b>{}<br/"
+"><b>Hjemmeside: </b><a href='{}'>{}</a>"
 
 #: __init__.py:213
-msgid "<b>Tuned into:</b><br/>{}<br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/><b>Homepage: </b><a href='{}'>{}</a>"
+msgid ""
+"<b>Tuned into:</b><br/>{}<br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </"
+"b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/"
+"><b>Homepage: </b><a href='{}'>{}</a>"
 msgstr ""
 "<b>Lyttet øre til:</b><br/>{}<br/><br/><b>Bitrate: </b>{} kbps<br/><b>Kodek: "
-"</b>{}<br/><b>Språk: </b>{}<br/><b>Plassering: </b>{}<br/><b>Etiketter: "
-"</b>{}<br/><b>Hjemmeside: </b><a href='{}'>{}</a>"
+"</b>{}<br/><b>Språk: </b>{}<br/><b>Plassering: </b>{}<br/><b>Etiketter: </"
+"b>{}<br/><b>Hjemmeside: </b><a href='{}'>{}</a>"
 
 #: __init__.py:232
 msgid "Tuned into {} (muted)"
@@ -123,7 +129,7 @@ msgstr "Stemte på stasjonen {}"
 msgid "Failed to vote for {}: {}"
 msgstr "Klarte ikke å stemme på {}: {}"
 
-#: __init__.py:322
+#: __init__.py:311
 msgid "Unexpected selection_made value: {}"
 msgstr "Uventet selection_made -verdi: {}"
 

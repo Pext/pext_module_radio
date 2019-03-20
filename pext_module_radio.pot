@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-02-18 21:07+CET\n"
+"POT-Creation-Date: 2019-03-20 19:28+CET\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,19 +51,19 @@ msgstr ""
 msgid "By Most Recent Change"
 msgstr ""
 
-#: __init__.py:149 __init__.py:282
+#: __init__.py:149
 msgid "mute"
 msgstr ""
 
-#: __init__.py:151 __init__.py:282
+#: __init__.py:151
 msgid "unmute"
 msgstr ""
 
-#: __init__.py:153 __init__.py:284
+#: __init__.py:153
 msgid "stop"
 msgstr ""
 
-#: __init__.py:154 __init__.py:286
+#: __init__.py:154
 msgid "vote"
 msgstr ""
 
@@ -111,7 +111,7 @@ msgstr ""
 msgid "Failed to vote for {}: {}"
 msgstr ""
 
-#: __init__.py:322
+#: __init__.py:311
 msgid "Unexpected selection_made value: {}"
 msgstr ""
 
