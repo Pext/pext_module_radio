@@ -144,7 +144,7 @@ class Module(ModuleBase):
         self.q.put([Action.add_entry, _('By Most Tune-Ins')])
         self.q.put([Action.add_entry, _('By Most Recent Listener')])
         self.q.put([Action.add_entry, _('By Most Recent Change')])
-        if self.nowPlaying:
+        if self.settings['_api_version'] < [0, 11, 0] and self.nowPlaying:
             if self.nowPlaying['process']:
                 self.q.put([Action.add_command, _('mute')])
             else:
@@ -278,17 +278,6 @@ class Module(ModuleBase):
             self.q.put([Action.replace_entry_list, []])
             self._get_entries()
         elif len(selection) == 1:
-            if selection[0]['type'] == SelectionType.command:
-                if selection[0]['value'] in [_('mute'), _('unmute')]:
-                    self._toggle_mute()
-                elif selection[0]['value'] == _('stop'):
-                    self._stop_playing()
-                elif selection[0]['value'] == _('vote'):
-                    self._vote_station()
-
-                self.q.put([Action.set_selection, []])
-                return
-
             # Force station list when no subcategories
             if self._entry_depth(selection[0]['value']) == 1:
                 self._get_stations(self._menu_to_type(selection[0]['value']), '')
