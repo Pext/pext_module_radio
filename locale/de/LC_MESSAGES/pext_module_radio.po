@@ -1,0 +1,132 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-03-20 19:28+CET\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+#: __init__.py:67
+msgid "ffplay is not installed, please install it."
+msgstr ""
+
+#: __init__.py:99 __init__.py:139
+msgid "By Country"
+msgstr ""
+
+#: __init__.py:101 __init__.py:140
+msgid "By Codec"
+msgstr ""
+
+#: __init__.py:103 __init__.py:141
+msgid "By Language"
+msgstr ""
+
+#: __init__.py:105 __init__.py:142
+msgid "By Tags"
+msgstr ""
+
+#: __init__.py:107 __init__.py:143
+msgid "By Votes"
+msgstr ""
+
+#: __init__.py:109 __init__.py:144
+msgid "By Most Tune-Ins"
+msgstr ""
+
+#: __init__.py:111 __init__.py:145
+msgid "By Most Recent Listener"
+msgstr ""
+
+#: __init__.py:113 __init__.py:146
+msgid "By Most Recent Change"
+msgstr ""
+
+#: __init__.py:149
+msgid "mute"
+msgstr ""
+
+#: __init__.py:151
+msgid "unmute"
+msgstr ""
+
+#: __init__.py:153
+msgid "stop"
+msgstr ""
+
+#: __init__.py:154
+msgid "vote"
+msgstr ""
+
+#: __init__.py:163
+msgid "{} ({} stations)"
+msgstr ""
+
+#: __init__.py:181
+msgid "<b>{}</b><br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/><b>Homepage: </b><a href='{}'>{}</a>"
+msgstr ""
+
+#: __init__.py:213
+msgid "<b>Tuned into:</b><br/>{}<br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/><b>Homepage: </b><a href='{}'>{}</a>"
+msgstr ""
+
+#: __init__.py:232
+msgid "Tuned into {} (muted)"
+msgstr ""
+
+#: __init__.py:234 __init__.py:243 __init__.py:269
+msgid "Stop"
+msgstr ""
+
+#: __init__.py:234 __init__.py:243 __init__.py:271
+msgid "Vote up"
+msgstr ""
+
+#: __init__.py:234 __init__.py:267
+msgid "Unmute"
+msgstr ""
+
+#: __init__.py:236
+msgid "Tuned into {}"
+msgstr ""
+
+#: __init__.py:243 __init__.py:267
+msgid "Mute"
+msgstr ""
+
+#: __init__.py:258
+msgid "Voted for station {}"
+msgstr ""
+
+#: __init__.py:260
+msgid "Failed to vote for {}: {}"
+msgstr ""
+
+#: __init__.py:311
+msgid "Unexpected selection_made value: {}"
+msgstr ""
+
+#: generate_metadata.py:40
+msgid "Radio"
+msgstr ""
+
+#: generate_metadata.py:42
+msgid "Allows Pext to play internet radio"
+msgstr ""
+
+#: generate_metadata.py:47
+msgid "API base URL"
+msgstr ""
+
+#: generate_metadata.py:51
+msgid "User Agent"
+msgstr ""
