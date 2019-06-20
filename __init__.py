@@ -32,8 +32,10 @@ from pext_helpers import Action, SelectionType
 
 class Module(ModuleBase):
     def init(self, settings, q):
+        self.module_path = os.path.dirname(os.path.abspath(__file__))
+
         try:
-            lang = gettext.translation('pext_module_radio', localedir=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'locale'), languages=[settings['_locale']])
+            lang = gettext.translation('pext_module_radio', localedir=os.path.join(self.module_path, 'locale'), languages=[settings['_locale']])
         except FileNotFoundError:
             lang = gettext.NullTranslations()
             print("No {} translation available for pext_module_radio".format(settings['_locale']))
@@ -47,12 +49,21 @@ class Module(ModuleBase):
         self.settings = settings
         self.q = q
 
+        self.favourites = []
+        try:
+            with open(os.path.join(self.module_path, "_user_favourites.txt"), "r") as favourites_file:
+                for favourite in favourites_file:
+                    self.favourites.append(favourite)
+        except IOError:
+            pass
+
         self.cached = {'countries': {'time': 0},
                        'codecs': {'time': 0},
                        'languages': {'time': 0},
                        'tags': {'time': 0}}
 
-        self.cachedStations = {'countries': {},
+        self.cachedStations = {'_favourites': {'time': 0},
+                               'countries': {},
                                'codecs': {},
                                'languages': {},
                                'tags': {},
@@ -96,7 +107,9 @@ class Module(ModuleBase):
             return 1
 
     def _menu_to_type(self, text):
-        if text == _('By Country'):
+        if text == _('Favourites'):
+            return '_favourites'
+        elif text == _('By Country'):
             return 'countries'
         elif text == _('By Codec'):
             return 'codecs'
@@ -116,7 +129,9 @@ class Module(ModuleBase):
             raise ValueError("Invalid text")
 
     def _type_to_stations(self, byType):
-        if byType == 'countries':
+        if byType == '_favourites':
+            return '_favourites'
+        elif byType == 'countries':
             return 'stations/bycountryexact'
         elif byType == 'codecs':
             return 'stations/bycodecexact'
@@ -136,6 +151,8 @@ class Module(ModuleBase):
             raise ValueError("Invalid type")
 
     def _get_entries(self):
+        if (self.favourites):
+            self.q.put([Action.add_entry, _('Favourites')])
         self.q.put([Action.add_entry, _('By Country')])
         self.q.put([Action.add_entry, _('By Codec')])
         self.q.put([Action.add_entry, _('By Language')])
@@ -164,16 +181,29 @@ class Module(ModuleBase):
 
     def _get_stations(self, byType, searchTerm):
         self.q.put([Action.replace_entry_list, []])
-        if searchTerm:
-            if not searchTerm in self.cachedStations[byType] or self._cache_expired(self.cachedStations[byType][searchTerm]):
-                self.cachedStations[byType][searchTerm] = {'time': time.time(), 'data': self._request_data('{}/{}'.format(self._type_to_stations(byType), searchTerm))}
 
-            cache = self.cachedStations[byType][searchTerm]
-        else:
+        if byType == '_favourites':
             if self._cache_expired(self.cachedStations[byType]):
-                self.cachedStations[byType] = {'time': time.time(), 'data': self._request_data(self._type_to_stations(byType))}
+                data = []
+                for favourite in self.favourites:
+                    station_data = self._request_data('stations/byid/{}'.format(favourite))
+                    if station_data:
+                        data.append(station_data[0])
 
+                self.cachedStations[byType] = {'time': time.time(), 'data': data}
             cache = self.cachedStations[byType]
+
+        else:
+            if searchTerm:
+                if not searchTerm in self.cachedStations[byType] or self._cache_expired(self.cachedStations[byType][searchTerm]):
+                    self.cachedStations[byType][searchTerm] = {'time': time.time(), 'data': self._request_data('{}/{}'.format(self._type_to_stations(byType), searchTerm))}
+
+                cache = self.cachedStations[byType][searchTerm]
+            else:
+                if self._cache_expired(self.cachedStations[byType]):
+                    self.cachedStations[byType] = {'time': time.time(), 'data': self._request_data(self._type_to_stations(byType))}
+
+                cache = self.cachedStations[byType]
 
         for entry in cache['data']:
             self.q.put([Action.add_entry, entry['name']])
@@ -182,8 +212,6 @@ class Module(ModuleBase):
 
     def _play_station(self, byType, searchTerm, stationName):
         self._stop_playing()
-
-        stationId = None
 
         if searchTerm:
             cache = self.cachedStations[byType][searchTerm]
@@ -231,7 +259,7 @@ class Module(ModuleBase):
                 self.nowPlaying['process'] = None
                 self.q.put([Action.set_header, _('Tuned into {} (muted)').format(self.nowPlaying['name'])])
                 if self.settings['_api_version'] >= [0, 6, 0]:
-                    self.q.put([Action.set_base_context, [_("Unmute"), _("Stop"), _("Vote up")]])
+                    self.q.put([Action.set_base_context, [_("Unmute"), _("Stop"), _("Favourite"), _("Vote up")]])
             else:
                 self.q.put([Action.set_header, _('Tuned into {}').format(self.nowPlaying['name'])])
                 self.nowPlaying['process'] = Popen(['ffplay',
@@ -240,7 +268,7 @@ class Module(ModuleBase):
                                                     '-loglevel', '0',
                                                     self.nowPlaying['url']])
                 if self.settings['_api_version'] >= [0, 6, 0]:
-                    self.q.put([Action.set_base_context, [_("Mute"), _("Stop"), _("Vote up")]])
+                    self.q.put([Action.set_base_context, [_("Mute"), _("Stop"), _("Favourite"), _("Vote up")]])
 
     def _stop_playing(self):
         if self.nowPlaying:
@@ -251,6 +279,12 @@ class Module(ModuleBase):
             if self.settings['_api_version'] >= [0, 6, 0]:
                 self.q.put([Action.set_base_info])
                 self.q.put([Action.set_base_context])
+
+    def _add_to_favourites(self, station_id):
+        with open(os.path.join(self.module_path, "_user_favourites.txt"), "a") as favourites_file:
+            favourites_file.write('{}\n'.format(station_id))
+            self.favourites.append(station_id)
+            self.cachedStations['_favourites'] = {'time': 0}
 
     def _vote_station(self):
         result = self._request_data('vote/{}'.format(self.nowPlaying['id']))
@@ -268,6 +302,8 @@ class Module(ModuleBase):
                 self._toggle_mute()
             elif selection[-1]['context_option'] == _('Stop'):
                 self._stop_playing()
+            elif selection[-1]['context_option'] == _('Favourite'):
+                self._add_to_favourites(self.nowPlaying['id'])
             elif selection[-1]['context_option'] == _('Vote up'):
                  self._vote_station()
             self.q.put([Action.set_selection, selection[:-1]])
