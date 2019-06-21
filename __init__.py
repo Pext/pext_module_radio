@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Copyright (C) 2016 - 2017 Sylvia van Os <sylvia@hackerchick.me>
+# Copyright (C) 2016 - 2019 Sylvia van Os <sylvia@hackerchick.me>
 #
 # Pext RadioBrowser module is free software: you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as published by
@@ -53,7 +53,7 @@ class Module(ModuleBase):
         try:
             with open(os.path.join(self.module_path, "_user_favourites.txt"), "r") as favourites_file:
                 for favourite in favourites_file:
-                    self.favourites.append(favourite)
+                    self.favourites.append(favourite.strip())
         except IOError:
             pass
 
@@ -180,8 +180,6 @@ class Module(ModuleBase):
             self.q.put([Action.add_entry, _('{} ({} stations)').format(entry['name'], entry['stationcount'])])
 
     def _get_stations(self, byType, searchTerm):
-        self.q.put([Action.replace_entry_list, []])
-
         if byType == '_favourites':
             if self._cache_expired(self.cachedStations[byType]):
                 data = []
@@ -191,24 +189,31 @@ class Module(ModuleBase):
                         data.append(station_data[0])
 
                 self.cachedStations[byType] = {'time': time.time(), 'data': data}
-            cache = self.cachedStations[byType]
 
-        else:
-            if searchTerm:
-                if not searchTerm in self.cachedStations[byType] or self._cache_expired(self.cachedStations[byType][searchTerm]):
-                    self.cachedStations[byType][searchTerm] = {'time': time.time(), 'data': self._request_data('{}/{}'.format(self._type_to_stations(byType), searchTerm))}
+            return self.cachedStations[byType]
 
-                cache = self.cachedStations[byType][searchTerm]
-            else:
-                if self._cache_expired(self.cachedStations[byType]):
-                    self.cachedStations[byType] = {'time': time.time(), 'data': self._request_data(self._type_to_stations(byType))}
+        if searchTerm:
+            if not searchTerm in self.cachedStations[byType] or self._cache_expired(self.cachedStations[byType][searchTerm]):
+                self.cachedStations[byType][searchTerm] = {'time': time.time(), 'data': self._request_data('{}/{}'.format(self._type_to_stations(byType), searchTerm))}
 
-                cache = self.cachedStations[byType]
+            return self.cachedStations[byType][searchTerm]
+
+        if self._cache_expired(self.cachedStations[byType]):
+            self.cachedStations[byType] = {'time': time.time(), 'data': self._request_data(self._type_to_stations(byType))}
+
+        return self.cachedStations[byType]
+
+    def _list_stations(self, byType, searchTerm):
+        self.q.put([Action.replace_entry_list, []])
+
+        cache = self._get_stations(byType, searchTerm)
 
         for entry in cache['data']:
             self.q.put([Action.add_entry, entry['name']])
             if self.settings['_api_version'] >= [0, 3, 1]:
                 self.q.put([Action.set_entry_info, entry['name'], _("<b>{}</b><br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/><b>Homepage: </b><a href='{}'>{}</a>").format(html.escape(entry['name']), html.escape(entry['bitrate']), html.escape(entry['codec']), html.escape(entry['language']), "{}, {}".format(html.escape(entry['state']), html.escape(entry['country'])) if entry['state'] else html.escape(entry['country']), html.escape(", ".join(entry['tags'].split(",")) if entry['tags'] else "None"), html.escape(entry['homepage']), html.escape(entry['homepage']))])
+            if self.settings['_api_version'] >= [0, 6, 0] and byType == '_favourites':
+                self.q.put([Action.set_entry_context, entry['name'], [_("Unfavourite")]])
 
     def _play_station(self, byType, searchTerm, stationName):
         self._stop_playing()
@@ -286,6 +291,19 @@ class Module(ModuleBase):
             self.favourites.append(station_id)
             self.cachedStations['_favourites'] = {'time': 0}
 
+    def _remove_from_favourites(self, station_name):
+        for station in self._get_stations('_favourites', '')['data']:
+            if station['name'] == station_name:
+                self.favourites.remove(station['id'])
+                with open(os.path.join(self.module_path, "_user_favourites.txt"), "w") as favourites_file:
+                    for favourite in self.favourites:
+                        favourites_file.write('{}\n'.format(favourite))
+
+                self.cachedStations['_favourites'] = {'time': 0}
+                return
+
+        self.q.put([Action.add_error, _('Could not find {} in favourites').format(station_name)])
+
     def _vote_station(self):
         result = self._request_data('vote/{}'.format(self.nowPlaying['id']))
         if result['ok'] == "true":
@@ -297,15 +315,22 @@ class Module(ModuleBase):
         self._stop_playing()
 
     def selection_made(self, selection):
-        if self.settings['_api_version'] >= [0, 6, 0] and len(selection) > 0 and selection[-1]['type'] == SelectionType.none:
-            if selection[-1]['context_option'] in [_('Mute'), _('Unmute')]:
-                self._toggle_mute()
-            elif selection[-1]['context_option'] == _('Stop'):
-                self._stop_playing()
-            elif selection[-1]['context_option'] == _('Favourite'):
-                self._add_to_favourites(self.nowPlaying['id'])
-            elif selection[-1]['context_option'] == _('Vote up'):
-                 self._vote_station()
+        if self.settings['_api_version'] >= [0, 6, 0] and len(selection) > 0 and selection[-1]['context_option']:
+            if selection[-1]['type'] == SelectionType.none:
+                if selection[-1]['context_option'] in [_('Mute'), _('Unmute')]:
+                    self._toggle_mute()
+                elif selection[-1]['context_option'] == _('Stop'):
+                    self._stop_playing()
+                elif selection[-1]['context_option'] == _('Favourite'):
+                    self._add_to_favourites(self.nowPlaying['id'])
+                elif selection[-1]['context_option'] == _('Vote up'):
+                     self._vote_station()
+            elif selection[-1]['context_option'] == _("Unfavourite"):
+                self._remove_from_favourites(selection[-1]['value'])
+                if not self.favourites:
+                    self.q.put([Action.set_selection, []])
+                    return
+
             self.q.put([Action.set_selection, selection[:-1]])
             return
 
@@ -316,7 +341,7 @@ class Module(ModuleBase):
         elif len(selection) == 1:
             # Force station list when no subcategories
             if self._entry_depth(selection[0]['value']) == 1:
-                self._get_stations(self._menu_to_type(selection[0]['value']), '')
+                self._list_stations(self._menu_to_type(selection[0]['value']), '')
                 return
 
             menuText = selection[0]['value']
@@ -334,7 +359,7 @@ class Module(ModuleBase):
             # Remove station count from searchterm
             searchTerm = selection[1]['value'][:selection[1]['value'].rfind('(')].rstrip()
 
-            self._get_stations(self._menu_to_type(selection[0]['value']), searchTerm)
+            self._list_stations(self._menu_to_type(selection[0]['value']), searchTerm)
         elif len(selection) == 3:
             # Remove station count from searchterm
             searchTerm = selection[1]['value'][:selection[1]['value'].rfind('(')].rstrip()
