@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2019-06-22 17:41+CEST\n"
-"PO-Revision-Date: 2019-02-16 02:25+0000\n"
+"PO-Revision-Date: 2019-06-24 09:10+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/pext/"
 "pext-radio-module/nb_NO/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.5-dev\n"
+"X-Generator: Weblate 3.7.1-dev\n"
 "Generated-By: pygettext.py 1.5\n"
 
 #: __init__.py:78
@@ -24,7 +24,7 @@ msgstr "ffplay er ikke installert, installer det."
 
 #: __init__.py:110 __init__.py:155
 msgid "Favourites"
-msgstr ""
+msgstr "Favoritter"
 
 #: __init__.py:112 __init__.py:156
 msgid "By Country"
@@ -92,7 +92,7 @@ msgstr ""
 
 #: __init__.py:216 __init__.py:328
 msgid "Unfavourite"
-msgstr ""
+msgstr "Opphev favorittmerking"
 
 #: __init__.py:246
 msgid ""
@@ -114,7 +114,7 @@ msgstr "Stopp"
 
 #: __init__.py:267 __init__.py:276 __init__.py:324
 msgid "Favourite"
-msgstr ""
+msgstr "Merk som favoritt"
 
 #: __init__.py:267 __init__.py:276 __init__.py:326
 msgid "Vote up"
@@ -134,7 +134,7 @@ msgstr "Forstum"
 
 #: __init__.py:305
 msgid "Could not find {} in favourites"
-msgstr ""
+msgstr "Fant ikke {} i favoritter"
 
 #: __init__.py:310
 #, fuzzy
