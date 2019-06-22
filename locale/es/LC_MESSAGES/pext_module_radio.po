@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-03-20 19:28+CET\n"
+"POT-Creation-Date: 2019-06-22 17:41+CEST\n"
 "PO-Revision-Date: 2019-02-05 18:19+0000\n"
 "Last-Translator: Sylvia van Os <sylvia@hackerchick.me>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/pext/pext-radio-"
@@ -18,63 +18,67 @@ msgstr ""
 "X-Generator: Weblate 3.5-dev\n"
 "Generated-By: pygettext.py 1.5\n"
 
-#: __init__.py:67
+#: __init__.py:78
 msgid "ffplay is not installed, please install it."
 msgstr "ffplay no está instalado, por favor instálalo."
 
-#: __init__.py:99 __init__.py:139
+#: __init__.py:110 __init__.py:155
+msgid "Favourites"
+msgstr ""
+
+#: __init__.py:112 __init__.py:156
 msgid "By Country"
 msgstr "Por país"
 
-#: __init__.py:101 __init__.py:140
+#: __init__.py:114 __init__.py:157
 msgid "By Codec"
 msgstr "Por codec"
 
-#: __init__.py:103 __init__.py:141
+#: __init__.py:116 __init__.py:158
 msgid "By Language"
 msgstr "Por idioma"
 
-#: __init__.py:105 __init__.py:142
+#: __init__.py:118 __init__.py:159
 msgid "By Tags"
 msgstr "Por etiquetas"
 
-#: __init__.py:107 __init__.py:143
+#: __init__.py:120 __init__.py:160
 msgid "By Votes"
 msgstr "Por votos"
 
-#: __init__.py:109 __init__.py:144
+#: __init__.py:122 __init__.py:161
 msgid "By Most Tune-Ins"
 msgstr "Por la mayoría de los Tune-Ins"
 
-#: __init__.py:111 __init__.py:145
+#: __init__.py:124 __init__.py:162
 msgid "By Most Recent Listener"
 msgstr "Por el oyente más reciente"
 
-#: __init__.py:113 __init__.py:146
+#: __init__.py:126 __init__.py:163
 msgid "By Most Recent Change"
 msgstr "Por cambio más reciente"
 
-#: __init__.py:149
+#: __init__.py:166
 msgid "mute"
 msgstr "apagar"
 
-#: __init__.py:151
+#: __init__.py:168
 msgid "unmute"
 msgstr "no silenciar"
 
-#: __init__.py:153
+#: __init__.py:170
 msgid "stop"
 msgstr "parar"
 
-#: __init__.py:154
+#: __init__.py:171
 msgid "vote"
 msgstr "votar"
 
-#: __init__.py:163
+#: __init__.py:180
 msgid "{} ({} stations)"
 msgstr "{} ({} estaciones)"
 
-#: __init__.py:181
+#: __init__.py:214
 msgid ""
 "<b>{}</b><br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/"
 "><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/"
@@ -84,7 +88,11 @@ msgstr ""
 "><b>Idioma: </b>{}<br/><b>Ubicación: </b>{}<br/><b>Etiquetas: </b>{}<br/"
 "><b>Página de inicio: </b><a href='{}'>{}</a>"
 
-#: __init__.py:213
+#: __init__.py:216 __init__.py:328
+msgid "Unfavourite"
+msgstr ""
+
+#: __init__.py:246
 msgid ""
 "<b>Tuned into:</b><br/>{}<br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </"
 "b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/"
@@ -94,39 +102,47 @@ msgstr ""
 "><b>Codec: </b>{}<br/><b>Idioma: </b>{}<br/><b>Ubicación: </b>{}<br/"
 "><b>Etiquetas: </b>{}<br/><b>Página de inicio: </b><a href='{}'>{}</a>"
 
-#: __init__.py:232
+#: __init__.py:265
 msgid "Tuned into {} (muted)"
 msgstr "Sintonizado en {} (silenciado)"
 
-#: __init__.py:234 __init__.py:243 __init__.py:269
+#: __init__.py:267 __init__.py:276 __init__.py:322
 msgid "Stop"
 msgstr "Detener"
 
-#: __init__.py:234 __init__.py:243 __init__.py:271
+#: __init__.py:267 __init__.py:276 __init__.py:324
+msgid "Favourite"
+msgstr ""
+
+#: __init__.py:267 __init__.py:276 __init__.py:326
 msgid "Vote up"
 msgstr "Vota arriba"
 
-#: __init__.py:234 __init__.py:267
+#: __init__.py:267 __init__.py:320
 msgid "Unmute"
 msgstr "No silenciar"
 
-#: __init__.py:236
+#: __init__.py:269
 msgid "Tuned into {}"
 msgstr "Sintonizado en {}"
 
-#: __init__.py:243 __init__.py:267
+#: __init__.py:276 __init__.py:320
 msgid "Mute"
 msgstr "apagar"
 
-#: __init__.py:258
+#: __init__.py:305
+msgid "Could not find {} in favourites"
+msgstr ""
+
+#: __init__.py:310
 msgid "Voted for station {}"
 msgstr "Votado por la estación {}"
 
-#: __init__.py:260
+#: __init__.py:312
 msgid "Failed to vote for {}: {}"
 msgstr "No se pudo votar por {}: {}"
 
-#: __init__.py:311
+#: __init__.py:372
 msgid "Unexpected selection_made value: {}"
 msgstr "Valor de selection_made inesperado: {}"
 

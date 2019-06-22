@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-03-20 19:28+CET\n"
+"POT-Creation-Date: 2019-06-22 17:41+CEST\n"
 "PO-Revision-Date: 2019-01-13 18:07+0000\n"
 "Last-Translator: Louies <louies0623@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -18,63 +18,67 @@ msgstr ""
 "X-Generator: Weblate 3.4-dev\n"
 "Generated-By: pygettext.py 1.5\n"
 
-#: __init__.py:67
+#: __init__.py:78
 msgid "ffplay is not installed, please install it."
 msgstr "未安裝 ffplay，請安裝。"
 
-#: __init__.py:99 __init__.py:139
+#: __init__.py:110 __init__.py:155
+msgid "Favourites"
+msgstr ""
+
+#: __init__.py:112 __init__.py:156
 msgid "By Country"
 msgstr "透過國家"
 
-#: __init__.py:101 __init__.py:140
+#: __init__.py:114 __init__.py:157
 msgid "By Codec"
 msgstr "透過轉碼"
 
-#: __init__.py:103 __init__.py:141
+#: __init__.py:116 __init__.py:158
 msgid "By Language"
 msgstr "透過語言"
 
-#: __init__.py:105 __init__.py:142
+#: __init__.py:118 __init__.py:159
 msgid "By Tags"
 msgstr "透過標籤"
 
-#: __init__.py:107 __init__.py:143
+#: __init__.py:120 __init__.py:160
 msgid "By Votes"
 msgstr "透過投票"
 
-#: __init__.py:109 __init__.py:144
+#: __init__.py:122 __init__.py:161
 msgid "By Most Tune-Ins"
 msgstr "透過大多數 Tune-Ins"
 
-#: __init__.py:111 __init__.py:145
+#: __init__.py:124 __init__.py:162
 msgid "By Most Recent Listener"
 msgstr "透過最近的聽眾"
 
-#: __init__.py:113 __init__.py:146
+#: __init__.py:126 __init__.py:163
 msgid "By Most Recent Change"
 msgstr "透過最近的更改"
 
-#: __init__.py:149
+#: __init__.py:166
 msgid "mute"
 msgstr "靜音"
 
-#: __init__.py:151
+#: __init__.py:168
 msgid "unmute"
 msgstr "非靜音"
 
-#: __init__.py:153
+#: __init__.py:170
 msgid "stop"
 msgstr "停止"
 
-#: __init__.py:154
+#: __init__.py:171
 msgid "vote"
 msgstr "投票"
 
-#: __init__.py:163
+#: __init__.py:180
 msgid "{} ({} stations)"
 msgstr "{} ({}站)"
 
-#: __init__.py:181
+#: __init__.py:214
 msgid ""
 "<b>{}</b><br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/"
 "><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/"
@@ -84,7 +88,11 @@ msgstr ""
 "言: </b>{}<br/><b>位置: </b>{}<br/><b>Tags: </b>{}<br/><b>網頁: </b><a "
 "href='{}'>{}</a>"
 
-#: __init__.py:213
+#: __init__.py:216 __init__.py:328
+msgid "Unfavourite"
+msgstr ""
+
+#: __init__.py:246
 msgid ""
 "<b>Tuned into:</b><br/>{}<br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </"
 "b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/"
@@ -94,39 +102,47 @@ msgstr ""
 "<br/><b>語言: </b>{}<br/><b>位置: </b>{}<br/><b>標籤: </b>{}<br/><b>網頁: </"
 "b><a href='{}'>{}</a>"
 
-#: __init__.py:232
+#: __init__.py:265
 msgid "Tuned into {} (muted)"
 msgstr "調到（靜音）"
 
-#: __init__.py:234 __init__.py:243 __init__.py:269
+#: __init__.py:267 __init__.py:276 __init__.py:322
 msgid "Stop"
 msgstr "停止"
 
-#: __init__.py:234 __init__.py:243 __init__.py:271
+#: __init__.py:267 __init__.py:276 __init__.py:324
+msgid "Favourite"
+msgstr ""
+
+#: __init__.py:267 __init__.py:276 __init__.py:326
 msgid "Vote up"
 msgstr "投票表決"
 
-#: __init__.py:234 __init__.py:267
+#: __init__.py:267 __init__.py:320
 msgid "Unmute"
 msgstr "取消靜音"
 
-#: __init__.py:236
+#: __init__.py:269
 msgid "Tuned into {}"
 msgstr "調到{}"
 
-#: __init__.py:243 __init__.py:267
+#: __init__.py:276 __init__.py:320
 msgid "Mute"
 msgstr "靜音"
 
-#: __init__.py:258
+#: __init__.py:305
+msgid "Could not find {} in favourites"
+msgstr ""
+
+#: __init__.py:310
 msgid "Voted for station {}"
 msgstr "投票支持"
 
-#: __init__.py:260
+#: __init__.py:312
 msgid "Failed to vote for {}: {}"
 msgstr "未能為：投票"
 
-#: __init__.py:311
+#: __init__.py:372
 msgid "Unexpected selection_made value: {}"
 msgstr "未預期的 selection_made 值：{}"
 

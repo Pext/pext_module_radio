@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-03-20 19:28+CET\n"
+"POT-Creation-Date: 2019-06-22 17:41+CEST\n"
 "PO-Revision-Date: 2019-02-16 02:25+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/pext/"
@@ -18,65 +18,69 @@ msgstr ""
 "X-Generator: Weblate 3.5-dev\n"
 "Generated-By: pygettext.py 1.5\n"
 
-#: __init__.py:67
+#: __init__.py:78
 msgid "ffplay is not installed, please install it."
 msgstr "ffplay er ikke installert, installer det."
 
-#: __init__.py:99 __init__.py:139
+#: __init__.py:110 __init__.py:155
+msgid "Favourites"
+msgstr ""
+
+#: __init__.py:112 __init__.py:156
 msgid "By Country"
 msgstr "Etter land"
 
-#: __init__.py:101 __init__.py:140
+#: __init__.py:114 __init__.py:157
 msgid "By Codec"
 msgstr "Etter kodek"
 
-#: __init__.py:103 __init__.py:141
+#: __init__.py:116 __init__.py:158
 msgid "By Language"
 msgstr "Etter språk"
 
-#: __init__.py:105 __init__.py:142
+#: __init__.py:118 __init__.py:159
 msgid "By Tags"
 msgstr "Etter etiketter"
 
-#: __init__.py:107 __init__.py:143
+#: __init__.py:120 __init__.py:160
 msgid "By Votes"
 msgstr "Etter stemmer"
 
-#: __init__.py:109 __init__.py:144
+#: __init__.py:122 __init__.py:161
 msgid "By Most Tune-Ins"
 msgstr "Etter flest lyttinger"
 
-#: __init__.py:111 __init__.py:145
+#: __init__.py:124 __init__.py:162
 #, fuzzy
 msgid "By Most Recent Listener"
 msgstr "Etter mest nylige lytting"
 
-#: __init__.py:113 __init__.py:146
+#: __init__.py:126 __init__.py:163
 msgid "By Most Recent Change"
 msgstr "Etter nyligste endring"
 
-#: __init__.py:149
+#: __init__.py:166
 msgid "mute"
 msgstr "Forstum"
 
-#: __init__.py:151
+#: __init__.py:168
 msgid "unmute"
 msgstr "Opphev forstumming"
 
-#: __init__.py:153
+#: __init__.py:170
 msgid "stop"
 msgstr "Stopp"
 
-#: __init__.py:154
+#: __init__.py:171
 msgid "vote"
 msgstr "Stem"
 
-#: __init__.py:163
+#: __init__.py:180
 #, fuzzy
 msgid "{} ({} stations)"
 msgstr "{} ({}-stasjoner}"
 
-#: __init__.py:181
+#: __init__.py:214
 msgid ""
 "<b>{}</b><br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/"
 "><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/"
@@ -86,7 +90,11 @@ msgstr ""
 "><b>Språk: </b>{}<br/><b>Plassering: </b>{}<br/><b>Etiketter: </b>{}<br/"
 "><b>Hjemmeside: </b><a href='{}'>{}</a>"
 
-#: __init__.py:213
+#: __init__.py:216 __init__.py:328
+msgid "Unfavourite"
+msgstr ""
+
+#: __init__.py:246
 msgid ""
 "<b>Tuned into:</b><br/>{}<br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </"
 "b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/"
@@ -96,40 +104,48 @@ msgstr ""
 "</b>{}<br/><b>Språk: </b>{}<br/><b>Plassering: </b>{}<br/><b>Etiketter: </"
 "b>{}<br/><b>Hjemmeside: </b><a href='{}'>{}</a>"
 
-#: __init__.py:232
+#: __init__.py:265
 msgid "Tuned into {} (muted)"
 msgstr "Lyttet øre til {} (forstummet)"
 
-#: __init__.py:234 __init__.py:243 __init__.py:269
+#: __init__.py:267 __init__.py:276 __init__.py:322
 msgid "Stop"
 msgstr "Stopp"
 
-#: __init__.py:234 __init__.py:243 __init__.py:271
+#: __init__.py:267 __init__.py:276 __init__.py:324
+msgid "Favourite"
+msgstr ""
+
+#: __init__.py:267 __init__.py:276 __init__.py:326
 msgid "Vote up"
 msgstr "Stem opp"
 
-#: __init__.py:234 __init__.py:267
+#: __init__.py:267 __init__.py:320
 msgid "Unmute"
 msgstr "Opphev forstumming"
 
-#: __init__.py:236
+#: __init__.py:269
 msgid "Tuned into {}"
 msgstr "Lytter øre til {}"
 
-#: __init__.py:243 __init__.py:267
+#: __init__.py:276 __init__.py:320
 msgid "Mute"
 msgstr "Forstum"
 
-#: __init__.py:258
+#: __init__.py:305
+msgid "Could not find {} in favourites"
+msgstr ""
+
+#: __init__.py:310
 #, fuzzy
 msgid "Voted for station {}"
 msgstr "Stemte på stasjonen {}"
 
-#: __init__.py:260
+#: __init__.py:312
 msgid "Failed to vote for {}: {}"
 msgstr "Klarte ikke å stemme på {}: {}"
 
-#: __init__.py:311
+#: __init__.py:372
 msgid "Unexpected selection_made value: {}"
 msgstr "Uventet selection_made -verdi: {}"
 
