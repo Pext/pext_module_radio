@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2019-06-22 17:41+CEST\n"
-"PO-Revision-Date: 2019-01-13 18:07+0000\n"
-"Last-Translator: Louies <louies0623@gmail.com>\n"
+"PO-Revision-Date: 2019-06-25 10:01+0000\n"
+"Last-Translator: Jeff Huang <s8321414@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
-"pext/pext-radio-module/zh_TW/>\n"
+"pext/pext-radio-module/zh_Hant/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.4-dev\n"
+"X-Generator: Weblate 3.7.1-dev\n"
 "Generated-By: pygettext.py 1.5\n"
 
 #: __init__.py:78
@@ -24,7 +24,7 @@ msgstr "未安裝 ffplay，請安裝。"
 
 #: __init__.py:110 __init__.py:155
 msgid "Favourites"
-msgstr ""
+msgstr "最愛"
 
 #: __init__.py:112 __init__.py:156
 msgid "By Country"
@@ -90,7 +90,7 @@ msgstr ""
 
 #: __init__.py:216 __init__.py:328
 msgid "Unfavourite"
-msgstr ""
+msgstr "取消最愛"
 
 #: __init__.py:246
 msgid ""
@@ -112,7 +112,7 @@ msgstr "停止"
 
 #: __init__.py:267 __init__.py:276 __init__.py:324
 msgid "Favourite"
-msgstr ""
+msgstr "最愛"
 
 #: __init__.py:267 __init__.py:276 __init__.py:326
 msgid "Vote up"
@@ -132,7 +132,7 @@ msgstr "靜音"
 
 #: __init__.py:305
 msgid "Could not find {} in favourites"
-msgstr ""
+msgstr "在最愛中找不到 {}"
 
 #: __init__.py:310
 msgid "Voted for station {}"
