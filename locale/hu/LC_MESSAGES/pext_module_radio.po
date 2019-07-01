@@ -6,74 +6,77 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2019-06-22 17:41+CEST\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2019-07-01 17:01+0000\n"
+"Last-Translator: Szöllősi Attila <ata2001@airmail.cc>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/pext/"
+"pext-radio-module/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.8-dev\n"
 "Generated-By: pygettext.py 1.5\n"
 
 #: __init__.py:78
 msgid "ffplay is not installed, please install it."
-msgstr ""
+msgstr "ffplay nincs telepítve, kérjük telepítse."
 
 #: __init__.py:110 __init__.py:155
 msgid "Favourites"
-msgstr ""
+msgstr "Kedvencek"
 
 #: __init__.py:112 __init__.py:156
 msgid "By Country"
-msgstr ""
+msgstr "Ország szerint"
 
 #: __init__.py:114 __init__.py:157
 msgid "By Codec"
-msgstr ""
+msgstr "Codec szerint"
 
 #: __init__.py:116 __init__.py:158
 msgid "By Language"
-msgstr ""
+msgstr "Nyelv szerint"
 
 #: __init__.py:118 __init__.py:159
 msgid "By Tags"
-msgstr ""
+msgstr "Címkék szerint"
 
 #: __init__.py:120 __init__.py:160
 msgid "By Votes"
-msgstr ""
+msgstr "Szavazatok szerint"
 
 #: __init__.py:122 __init__.py:161
 msgid "By Most Tune-Ins"
-msgstr ""
+msgstr "Legtöbb hallgatás szerint"
 
 #: __init__.py:124 __init__.py:162
 msgid "By Most Recent Listener"
-msgstr ""
+msgstr "Legújabb hallgató szerint"
 
 #: __init__.py:126 __init__.py:163
 msgid "By Most Recent Change"
-msgstr ""
+msgstr "Legújabb változás szerint"
 
 #: __init__.py:166
 msgid "mute"
-msgstr ""
+msgstr "némítás"
 
 #: __init__.py:168
 msgid "unmute"
-msgstr ""
+msgstr "némítás ki"
 
 #: __init__.py:170
 msgid "stop"
-msgstr ""
+msgstr "leállítás"
 
 #: __init__.py:171
 msgid "vote"
-msgstr ""
+msgstr "szavazás"
 
 #: __init__.py:180
 msgid "{} ({} stations)"
-msgstr ""
+msgstr "{} ({} állomás)"
 
 #: __init__.py:214
 msgid ""
@@ -81,10 +84,13 @@ msgid ""
 "><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/"
 "><b>Homepage: </b><a href='{}'>{}</a>"
 msgstr ""
+"<b>{}</b><br/><br/><b>Bitráta: </b>{} kbps<br/><b>Codec: </b>{}<br/><b>Nyelv:"
+" </b>{}<br/><b>Hely: </b>{}<br/><b>Címkék: </b>{}<br/><b>Honlap: </b><a "
+"href='{}'>{}</a>"
 
 #: __init__.py:216 __init__.py:328
 msgid "Unfavourite"
-msgstr ""
+msgstr "Nem kedvelt"
 
 #: __init__.py:246
 msgid ""
@@ -92,63 +98,66 @@ msgid ""
 "b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/"
 "><b>Homepage: </b><a href='{}'>{}</a>"
 msgstr ""
+"<b>Állomás:</b><br/>{}<br/><br/><b>Bitráta: </b>{} kbps<br/><b>Codec: </b>{}<"
+"br/><b>Nyelv: </b>{}<br/><b>Hely: </b>{}<br/><b>Címkék: </b>{}<br/><b>Honlap:"
+" </b><a href='{}'>{}</a>"
 
 #: __init__.py:265
 msgid "Tuned into {} (muted)"
-msgstr ""
+msgstr "A(z) {} állomásra hangolva (némítva)"
 
 #: __init__.py:267 __init__.py:276 __init__.py:322
 msgid "Stop"
-msgstr ""
+msgstr "Leállítás"
 
 #: __init__.py:267 __init__.py:276 __init__.py:324
 msgid "Favourite"
-msgstr ""
+msgstr "Kedvenc"
 
 #: __init__.py:267 __init__.py:276 __init__.py:326
 msgid "Vote up"
-msgstr ""
+msgstr "Felszavazás"
 
 #: __init__.py:267 __init__.py:320
 msgid "Unmute"
-msgstr ""
+msgstr "Némítás ki"
 
 #: __init__.py:269
 msgid "Tuned into {}"
-msgstr ""
+msgstr "A(z) {} állomásra hangolva"
 
 #: __init__.py:276 __init__.py:320
 msgid "Mute"
-msgstr ""
+msgstr "Némítás"
 
 #: __init__.py:305
 msgid "Could not find {} in favourites"
-msgstr ""
+msgstr "A(z) {} nem található a kedvencek között"
 
 #: __init__.py:310
 msgid "Voted for station {}"
-msgstr ""
+msgstr "A(z) {} állomásra szavazva"
 
 #: __init__.py:312
 msgid "Failed to vote for {}: {}"
-msgstr ""
+msgstr "Nem sikerült szavazni a(z) {} állomásra: {}"
 
 #: __init__.py:372
 msgid "Unexpected selection_made value: {}"
-msgstr ""
+msgstr "Váratlan selection_made érték: {}"
 
 #: generate_metadata.py:40
 msgid "Radio"
-msgstr ""
+msgstr "Rádió"
 
 #: generate_metadata.py:42
 msgid "Allows Pext to play internet radio"
-msgstr ""
+msgstr "Internetes rádió hallgatása Pexttel"
 
 #: generate_metadata.py:47
 msgid "API base URL"
-msgstr ""
+msgstr "API alap URL-je"
 
 #: generate_metadata.py:51
 msgid "User Agent"
-msgstr ""
+msgstr "Felhasználói ügynök"
