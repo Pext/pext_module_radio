@@ -1,4 +1,6 @@
 {
+  "bugtracker": "https://github.com/Pext/pext_module_radio",
+  "bugtracker_type": "github",
   "description": "Internetes r\u00e1di\u00f3 hallgat\u00e1sa Pexttel",
   "developer": "Sylvia van Os",
   "git_urls": [

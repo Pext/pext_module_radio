@@ -1,4 +1,6 @@
 {
+  "bugtracker": "https://github.com/Pext/pext_module_radio",
+  "bugtracker_type": "github",
   "description": "Lar Pext spille nettradio",
   "developer": "Sylvia van Os",
   "git_urls": [

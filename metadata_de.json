@@ -1,4 +1,6 @@
 {
+  "bugtracker": "https://github.com/Pext/pext_module_radio",
+  "bugtracker_type": "github",
   "description": "Erlaubt es Pext, Internet-Radio zu abzuspielen",
   "developer": "Sylvia van Os",
   "git_urls": [

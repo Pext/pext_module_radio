@@ -43,6 +43,8 @@ for language in languages:
                'homepage': 'https://pext.hackerchick.me/',
                'license': 'GPL-3.0+',
                'git_urls': ['https://github.com/Pext/pext_module_radio'],
+               'bugtracker': 'https://github.com/Pext/pext_module_radio',
+               'bugtracker_type': 'github',
                'settings': [{'name': 'baseUrl',
                              'description': _('API base URL'),
                              'defaults': 'http://www.radio-browser.info/webservice'
