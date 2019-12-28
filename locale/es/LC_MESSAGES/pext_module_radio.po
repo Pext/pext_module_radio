@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2019-06-22 17:41+CEST\n"
-"PO-Revision-Date: 2019-07-18 13:05+0000\n"
-"Last-Translator: Henley Garcia <henleygarcia54@gmail.com>\n"
+"PO-Revision-Date: 2019-12-29 02:38+0000\n"
+"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/pext/"
 "pext-radio-module/es/>\n"
 "Language: es\n"
@@ -15,12 +15,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.8-dev\n"
+"X-Generator: Weblate 3.10\n"
 "Generated-By: pygettext.py 1.5\n"
 
 #: __init__.py:78
 msgid "ffplay is not installed, please install it."
-msgstr "ffplay no está instalado, por favor instálalo."
+msgstr "ffplay no está instalado; instálelo."
 
 #: __init__.py:110 __init__.py:155
 msgid "Favourites"
@@ -32,7 +32,7 @@ msgstr "Por país"
 
 #: __init__.py:114 __init__.py:157
 msgid "By Codec"
-msgstr "Por codec"
+msgstr "Por códec"
 
 #: __init__.py:116 __init__.py:158
 msgid "By Language"
@@ -48,7 +48,7 @@ msgstr "Por votos"
 
 #: __init__.py:122 __init__.py:161
 msgid "By Most Tune-Ins"
-msgstr "Por la mayoría de los Tune-Ins"
+msgstr "Por cantidad de «Tune-Ins»"
 
 #: __init__.py:124 __init__.py:162
 msgid "By Most Recent Listener"
@@ -60,7 +60,7 @@ msgstr "Por cambio más reciente"
 
 #: __init__.py:166
 msgid "mute"
-msgstr "apagar"
+msgstr "silenciar"
 
 #: __init__.py:168
 msgid "unmute"
@@ -68,7 +68,7 @@ msgstr "no silenciar"
 
 #: __init__.py:170
 msgid "stop"
-msgstr "parar"
+msgstr "detener"
 
 #: __init__.py:171
 msgid "vote"
@@ -84,9 +84,9 @@ msgid ""
 "><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/"
 "><b>Homepage: </b><a href='{}'>{}</a>"
 msgstr ""
-"<b>{}</b><br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/"
-"><b>Idioma: </b>{}<br/><b>Ubicación: </b>{}<br/><b>Etiquetas: </b>{}<br/"
-"><b>Página de inicio: </b><a href='{}'>{}</a>"
+"<b>{}</b><br/><br/><b>Tasa de bits: </b>{} kbps<br/><b>Códec: </b>{}<br/"
+"><b>Idioma: </b>{}<br/><b>Ubicación: </b>{}<br/><b>Etiquetas: </b>{}<br/><b>"
+"Sitio web: </b><a href='{}'>{}</a>"
 
 #: __init__.py:216 __init__.py:328
 msgid "Unfavourite"
@@ -98,9 +98,9 @@ msgid ""
 "b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/"
 "><b>Homepage: </b><a href='{}'>{}</a>"
 msgstr ""
-"<b>En sintonizado con:</b><br/>{}<br/><br/><b>Bitrate: </b>{} kbps<br/"
-"><b>Codec: </b>{}<br/><b>Idioma: </b>{}<br/><b>Ubicación: </b>{}<br/"
-"><b>Etiquetas: </b>{}<br/><b>Página de inicio: </b><a href='{}'>{}</a>"
+"<b>Sintonizado con:</b><br/>{}<br/><br/><b>Tasa de bits: </b>{} kbps<br/"
+"><b>Códec: </b>{}<br/><b>Idioma: </b>{}<br/><b>Ubicación: </b>{}<br/"
+"><b>Etiquetas: </b>{}<br/><b>Sitio web: </b><a href='{}'>{}</a>"
 
 #: __init__.py:265
 msgid "Tuned into {} (muted)"
@@ -128,11 +128,11 @@ msgstr "Sintonizado en {}"
 
 #: __init__.py:276 __init__.py:320
 msgid "Mute"
-msgstr "apagar"
+msgstr "Silenciar"
 
 #: __init__.py:305
 msgid "Could not find {} in favourites"
-msgstr ""
+msgstr "No se pudo encontrar {} en los favoritos"
 
 #: __init__.py:310
 msgid "Voted for station {}"
