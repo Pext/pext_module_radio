@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2019-06-22 17:41+CEST\n"
-"PO-Revision-Date: 2019-06-24 09:10+0000\n"
+"PO-Revision-Date: 2020-02-08 18:50+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/pext/"
 "pext-radio-module/nb_NO/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7.1-dev\n"
+"X-Generator: Weblate 3.11-dev\n"
 "Generated-By: pygettext.py 1.5\n"
 
 #: __init__.py:78
@@ -147,7 +147,7 @@ msgstr "Klarte ikke å stemme på {}: {}"
 
 #: __init__.py:372
 msgid "Unexpected selection_made value: {}"
-msgstr "Uventet selection_made -verdi: {}"
+msgstr "Uventet selection_made-verdi: {}"
 
 #: generate_metadata.py:40
 msgid "Radio"
