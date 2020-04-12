@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2019-06-22 17:41+CEST\n"
-"PO-Revision-Date: 2019-07-20 21:07+0000\n"
-"Last-Translator: Claire Goulet <claire.m.goulet@gmail.com>\n"
+"PO-Revision-Date: 2020-04-12 21:11+0000\n"
+"Last-Translator: Jeannette L <j.lavoie@net-c.ca>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/pext/"
 "pext-radio-module/fr/>\n"
 "Language: fr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.8-dev\n"
+"X-Generator: Weblate 4.0-dev\n"
 "Generated-By: pygettext.py 1.5\n"
 
 #: __init__.py:78
@@ -144,8 +144,9 @@ msgid "Failed to vote for {}: {}"
 msgstr "Impossible de voter pour {}: {}"
 
 #: __init__.py:372
+#, fuzzy
 msgid "Unexpected selection_made value: {}"
-msgstr "Sélection inattendue faite: {}"
+msgstr "Valeur selection_made inattendue : {}"
 
 #: generate_metadata.py:40
 msgid "Radio"
