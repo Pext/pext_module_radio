@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-06-22 17:41+CEST\n"
+"POT-Creation-Date: 2019-07-01 19:18+CEST\n"
 "PO-Revision-Date: 2019-03-18 20:04+0000\n"
 "Last-Translator: Nelly Simkova <sk8higher@iballwasrawt.ru>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/pext/pext-"

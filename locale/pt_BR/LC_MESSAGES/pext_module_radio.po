@@ -76,7 +76,10 @@ msgid "{} ({} stations)"
 msgstr ""
 
 #: __init__.py:214
-msgid "<b>{}</b><br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/><b>Homepage: </b><a href='{}'>{}</a>"
+msgid ""
+"<b>{}</b><br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/"
+"><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/"
+"><b>Homepage: </b><a href='{}'>{}</a>"
 msgstr ""
 
 #: __init__.py:216 __init__.py:328
@@ -84,7 +87,10 @@ msgid "Unfavourite"
 msgstr ""
 
 #: __init__.py:246
-msgid "<b>Tuned into:</b><br/>{}<br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/><b>Homepage: </b><a href='{}'>{}</a>"
+msgid ""
+"<b>Tuned into:</b><br/>{}<br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </"
+"b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/"
+"><b>Homepage: </b><a href='{}'>{}</a>"
 msgstr ""
 
 #: __init__.py:265
