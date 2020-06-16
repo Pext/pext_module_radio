@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2020-06-16 20:03+CEST\n"
+"POT-Creation-Date: 2019-07-01 19:18+CEST\n"
 "PO-Revision-Date: 2020-04-12 21:11+0000\n"
 "Last-Translator: Jeannette L <j.lavoie@net-c.ca>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/pext/pext-radio-"
