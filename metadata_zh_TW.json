@@ -3,6 +3,7 @@
   "bugtracker_type": "github",
   "description": "\u5141\u8a31 Pext \u64ad\u653e\u7db2\u8def\u5ee3\u64ad",
   "developer": "Sylvia van Os",
+  "git_branch_stable": "stable",
   "git_urls": [
     "https://github.com/Pext/pext_module_radio"
   ],

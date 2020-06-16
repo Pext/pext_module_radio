@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-07-01 19:18+CEST\n"
+"POT-Creation-Date: 2020-06-16 20:03+CEST\n"
 "PO-Revision-Date: 2020-02-20 15:24+0000\n"
 "Last-Translator: Peter J. Mello <admin@petermello.net>\n"
 "Language-Team: Portuguese (Portugal) <https://hosted.weblate.org/projects/"
@@ -79,7 +79,10 @@ msgid "{} ({} stations)"
 msgstr "{} ({} estações)"
 
 #: __init__.py:214
-msgid "<b>{}</b><br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/><b>Homepage: </b><a href='{}'>{}</a>"
+msgid ""
+"<b>{}</b><br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/"
+"><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/"
+"><b>Homepage: </b><a href='{}'>{}</a>"
 msgstr ""
 "<b>{}</b><br/><br/><b>Taxa de bits: </b>{} kbps<br/><b>Codec: </b>{}<br/"
 "><b>Idioma: </b>{}<br/><b>Localização: </b>{}<br/><b>Etiquetas: </b>{}<br/"
@@ -90,7 +93,10 @@ msgid "Unfavourite"
 msgstr "Desfavorito"
 
 #: __init__.py:246
-msgid "<b>Tuned into:</b><br/>{}<br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/><b>Homepage: </b><a href='{}'>{}</a>"
+msgid ""
+"<b>Tuned into:</b><br/>{}<br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </"
+"b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/"
+"><b>Homepage: </b><a href='{}'>{}</a>"
 msgstr ""
 
 #: __init__.py:265
@@ -145,10 +151,10 @@ msgstr ""
 msgid "Allows Pext to play internet radio"
 msgstr ""
 
-#: generate_metadata.py:47
+#: generate_metadata.py:50
 msgid "API base URL"
 msgstr ""
 
-#: generate_metadata.py:51
+#: generate_metadata.py:54
 msgid "User Agent"
 msgstr ""

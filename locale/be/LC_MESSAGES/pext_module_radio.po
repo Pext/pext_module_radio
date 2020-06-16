@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-06-22 17:41+CEST\n"
+"POT-Creation-Date: 2020-06-16 20:03+CEST\n"
 "PO-Revision-Date: 2019-03-18 20:04+0000\n"
 "Last-Translator: Nelly Simkova <sk8higher@iballwasrawt.ru>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/pext/pext-"
@@ -149,10 +149,10 @@ msgstr ""
 msgid "Allows Pext to play internet radio"
 msgstr ""
 
-#: generate_metadata.py:47
+#: generate_metadata.py:50
 msgid "API base URL"
 msgstr ""
 
-#: generate_metadata.py:51
+#: generate_metadata.py:54
 msgid "User Agent"
 msgstr ""
