@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2020-06-16 20:03+CEST\n"
-"PO-Revision-Date: 2020-02-20 15:24+0000\n"
+"PO-Revision-Date: 2020-06-29 15:41+0000\n"
 "Last-Translator: Peter J. Mello <admin@petermello.net>\n"
 "Language-Team: Portuguese (Portugal) <https://hosted.weblate.org/projects/"
 "pext/pext-radio-module/pt_PT/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.11.1\n"
+"X-Generator: Weblate 4.2-dev\n"
 "Generated-By: pygettext.py 1.5\n"
 
 #: __init__.py:78
@@ -64,7 +64,7 @@ msgstr "Silenciar"
 
 #: __init__.py:168
 msgid "unmute"
-msgstr "Ativar"
+msgstr "Desativar o silêncio"
 
 #: __init__.py:170
 msgid "stop"
@@ -98,63 +98,66 @@ msgid ""
 "b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/"
 "><b>Homepage: </b><a href='{}'>{}</a>"
 msgstr ""
+"<b>Sintonizado em:</b><br/>{}<br/><br/><b>Velocidade de bits: </b>{} kbps<br/"
+"><b>Código: </b>{}<br/><b>Língua: </b>{}<br/><b>Localização: </b>{}<br/"
+"><b>Etiquetas: </b>{}<br/><b>Página de início: </b><a href='{}'>{}</a>"
 
 #: __init__.py:265
 msgid "Tuned into {} (muted)"
-msgstr ""
+msgstr "Sintonizado em {} (silenciado)"
 
 #: __init__.py:267 __init__.py:276 __init__.py:322
 msgid "Stop"
-msgstr ""
+msgstr "Parar"
 
 #: __init__.py:267 __init__.py:276 __init__.py:324
 msgid "Favourite"
-msgstr ""
+msgstr "Preferido"
 
 #: __init__.py:267 __init__.py:276 __init__.py:326
 msgid "Vote up"
-msgstr ""
+msgstr "Votar em"
 
 #: __init__.py:267 __init__.py:320
 msgid "Unmute"
-msgstr ""
+msgstr "Desativar o silêncio"
 
 #: __init__.py:269
 msgid "Tuned into {}"
-msgstr ""
+msgstr "Sintonizado em {}"
 
 #: __init__.py:276 __init__.py:320
 msgid "Mute"
-msgstr ""
+msgstr "Silenciar"
 
 #: __init__.py:305
 msgid "Could not find {} in favourites"
-msgstr ""
+msgstr "Não encontrei {} nos favoritos"
 
 #: __init__.py:310
 msgid "Voted for station {}"
-msgstr ""
+msgstr "Votado para estação {}"
 
 #: __init__.py:312
 msgid "Failed to vote for {}: {}"
-msgstr ""
+msgstr "Falhou a votação para a {}: {}"
 
 #: __init__.py:372
 msgid "Unexpected selection_made value: {}"
-msgstr ""
+msgstr "Valor inesperado de selection_made: {}"
 
 #: generate_metadata.py:40
 msgid "Radio"
-msgstr ""
+msgstr "Rádio"
 
 #: generate_metadata.py:42
 msgid "Allows Pext to play internet radio"
-msgstr ""
+msgstr "Permite à Pext tocar rádio pela Internet"
 
 #: generate_metadata.py:50
 msgid "API base URL"
-msgstr ""
+msgstr "URL base do API"
 
 #: generate_metadata.py:54
 msgid "User Agent"
-msgstr ""
+msgstr "Agente do usuário"
