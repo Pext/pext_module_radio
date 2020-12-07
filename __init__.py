@@ -34,7 +34,8 @@ class Module(ModuleBase):
         self.module_path = os.path.dirname(os.path.abspath(__file__))
 
         try:
-            lang = gettext.translation('pext_module_radio', localedir=os.path.join(self.module_path, 'locale'), languages=[settings['_locale']])
+            lang = gettext.translation('pext_module_radio', localedir=os.path.join(self.module_path, 'locale'),
+                                       languages=[settings['_locale']])
         except FileNotFoundError:
             lang = gettext.NullTranslations()
             print("No {} translation available for pext_module_radio".format(settings['_locale']))
@@ -120,28 +121,28 @@ class Module(ModuleBase):
         else:
             return self._search_stations_by_type(search_type)
 
-    def _search_stations_by_type(self, byType, searchTerm=None):
-        if byType == 'countries':
-            return self.rb.stations_by_country(searchTerm, True)
-        elif byType == 'codecs':
-            return self.rb.stations_by_codec(searchTerm, True)
-        elif byType == 'languages':
-            return self.rb.stations_by_language(searchTerm, True)
-        elif byType == 'tags':
-            return self.rb.stations_by_tag(searchTerm, True)
-        elif byType == 'topvote':
+    def _search_stations_by_type(self, search_type, search_term=None):
+        if search_type == 'countries':
+            return self.rb.stations_by_country(search_term, True)
+        elif search_type == 'codecs':
+            return self.rb.stations_by_codec(search_term, True)
+        elif search_type == 'languages':
+            return self.rb.stations_by_language(search_term, True)
+        elif search_type == 'tags':
+            return self.rb.stations_by_tag(search_term, True)
+        elif search_type == 'topvote':
             return self.rb.stations(order='votes')
-        elif byType == 'topclick':
+        elif search_type == 'topclick':
             return self.rb.stations(order='clickcount')
-        elif byType == 'lastclick':
+        elif search_type == 'lastclick':
             return self.rb.stations(order='clicktimestamp')
-        elif byType == 'lastchange':
+        elif search_type == 'lastchange':
             return self.rb.stations(order='lastchangetime')
         else:
             raise ValueError("Invalid type")
 
     def _get_entries(self):
-        if (self.favourites):
+        if self.favourites:
             self.q.put([Action.add_entry, _('Favourites')])
         self.q.put([Action.add_entry, _('By Country')])
         self.q.put([Action.add_entry, _('By Codec')])
@@ -169,40 +170,44 @@ class Module(ModuleBase):
         for entry in self.cached[path]['data']:
             self.q.put([Action.add_entry, _('{} ({} stations)').format(entry['name'], entry['stationcount'])])
 
-    def _get_stations(self, byType, searchTerm):
-        if byType == '_favourites':
-            if self._cache_expired(self.cachedStations[byType]):
+    def _get_stations(self, search_type, search_term):
+        if search_type == '_favourites':
+            if self._cache_expired(self.cachedStations[search_type]):
                 data = []
                 for favourite in self.favourites:
                     station_data = self.rb.station_by_uuid(favourite)
                     if station_data:
                         data.append(station_data[0])
 
-                self.cachedStations[byType] = {'time': time.time(), 'data': data}
+                self.cachedStations[search_type] = {'time': time.time(), 'data': data}
 
-            return self.cachedStations[byType]
+            return self.cachedStations[search_type]
 
-        if searchTerm:
-            if searchTerm not in self.cachedStations[byType] or self._cache_expired(self.cachedStations[byType][searchTerm]):
-                self.cachedStations[byType][searchTerm] = {'time': time.time(), 'data': self._search_stations_by_type(byType, searchTerm)}
+        if search_term:
+            if search_term not in self.cachedStations[search_type] or self._cache_expired(
+                    self.cachedStations[search_type][search_term]):
+                self.cachedStations[search_type][search_term] = {'time': time.time(),
+                                                                 'data': self._search_stations_by_type(search_type,
+                                                                                                       search_term)}
 
-            return self.cachedStations[byType][searchTerm]
+            return self.cachedStations[search_type][search_term]
 
-        if self._cache_expired(self.cachedStations[byType]):
-            self.cachedStations[byType] = {'time': time.time(), 'data': self._search_stations_by_type(byType)}
+        if self._cache_expired(self.cachedStations[search_type]):
+            self.cachedStations[search_type] = {'time': time.time(), 'data': self._search_stations_by_type(search_type)}
 
-        return self.cachedStations[byType]
+        return self.cachedStations[search_type]
 
-    def _list_stations(self, byType, searchTerm):
+    def _list_stations(self, search_type, search_term):
         self.q.put([Action.replace_entry_list, []])
 
-        cache = self._get_stations(byType, searchTerm)
+        cache = self._get_stations(search_type, search_term)
 
         for entry in cache['data']:
             self.q.put([Action.add_entry, entry['name']])
             if self.settings['_api_version'] >= [0, 3, 1]:
-                self.q.put([Action.set_entry_info, entry['name'], _("<b>{}</b><br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/><b>Homepage: </b><a href='{}'>{}</a>").format(html.escape(entry['name']), html.escape(str(entry['bitrate'])), html.escape(entry['codec']), html.escape(entry['language']), "{}, {}".format(html.escape(entry['state']), html.escape(entry['country'])) if entry['state'] else html.escape(entry['country']), html.escape(", ".join(entry['tags'].split(",")) if entry['tags'] else "None"), html.escape(entry['homepage']), html.escape(entry['homepage']))])
-            if self.settings['_api_version'] >= [0, 6, 0] and byType == '_favourites':
+                self.q.put([Action.set_entry_info, entry['name'], _("<b>{}</b><br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/><b>Homepage: </b><a href='{}'>{}</a>")
+                           .format(html.escape(entry['name']), html.escape(str(entry['bitrate'])), html.escape(entry['codec']), html.escape(entry['language']), "{}, {}".format(html.escape(entry['state']), html.escape(entry['country'])) if entry['state'] else html.escape(entry['country']), html.escape(", ".join(entry['tags'].split(",")) if entry['tags'] else "None"), html.escape(entry['homepage']), html.escape(entry['homepage']))])
+            if self.settings['_api_version'] >= [0, 6, 0] and search_type == '_favourites':
                 self.q.put([Action.set_entry_context, entry['name'], [_("Unfavourite")]])
 
     def _play_station(self, byType, searchTerm, stationName):
@@ -226,14 +231,15 @@ class Module(ModuleBase):
             return False
 
         # TODO: Replace ffplay with something more easily scriptable that
-        # preferrably notifies us of song changes on the station.
+        # preferably notifies us of song changes on the station.
         self.nowPlaying = {'id': station_uuid,
                            'name': stationName,
                            'url': response['url'],
                            'process': None}
 
         if self.settings['_api_version'] >= [0, 6, 0]:
-            self.q.put([Action.set_base_info, _("<b>Tuned into:</b><br/>{}<br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/><b>Homepage: </b><a href='{}'>{}</a>").format(html.escape(station_info['name']), html.escape(str(station_info['bitrate'])), html.escape(station_info['codec']), html.escape(station_info['language']), "{}, {}".format(html.escape(station_info['state']), html.escape(station_info['country'])) if station_info['state'] else html.escape(station_info['country']), html.escape(", ".join(station_info['tags'].split(",")) if station_info['tags'] else "None"), html.escape(station_info['homepage']), html.escape(station_info['homepage']))])
+            self.q.put([Action.set_base_info, _("<b>Tuned into:</b><br/>{}<br/><br/><b>Bitrate: </b>{} kbps<br/><b>Codec: </b>{}<br/><b>Language: </b>{}<br/><b>Location: </b>{}<br/><b>Tags: </b>{}<br/><b>Homepage: </b><a href='{}'>{}</a>")
+                       .format(html.escape(station_info['name']), html.escape(str(station_info['bitrate'])), html.escape(station_info['codec']), html.escape(station_info['language']), "{}, {}".format(html.escape(station_info['state']), html.escape(station_info['country'])) if station_info['state'] else html.escape(station_info['country']), html.escape(", ".join(station_info['tags'].split(",")) if station_info['tags'] else "None"), html.escape(station_info['homepage']), html.escape(station_info['homepage']))])
 
         self._toggle_mute()
 
@@ -299,7 +305,8 @@ class Module(ModuleBase):
         if result['ok']:
             self.q.put([Action.add_message, _('Voted for station {}').format(self.nowPlaying['name'])])
         else:
-            self.q.put([Action.add_error, _('Failed to vote for {}: {}').format(self.nowPlaying['name'], result['message'])])
+            self.q.put(
+                [Action.add_error, _('Failed to vote for {}: {}').format(self.nowPlaying['name'], result['message'])])
 
     def stop(self):
         self._stop_playing()
@@ -314,7 +321,7 @@ class Module(ModuleBase):
                 elif selection[-1]['context_option'] == _('Favourite'):
                     self._add_to_favourites(self.nowPlaying['id'])
                 elif selection[-1]['context_option'] == _('Vote up'):
-                     self._vote_station()
+                    self._vote_station()
             elif selection[-1]['context_option'] == _("Unfavourite"):
                 self._remove_from_favourites(selection[-1]['value'])
                 if not self.favourites:
@@ -334,8 +341,8 @@ class Module(ModuleBase):
                 self._list_stations(self._menu_to_type(selection[0]['value']), '')
                 return
 
-            menuText = selection[0]['value']
-            self._get_list(self._menu_to_type(menuText))
+            menu_text = selection[0]['value']
+            self._get_list(self._menu_to_type(menu_text))
         elif len(selection) == 2:
             # Force playing when no subcategories
             if self._entry_depth(selection[0]['value']) == 1:
@@ -346,15 +353,15 @@ class Module(ModuleBase):
 
                 return
 
-            # Remove station count from searchterm
-            searchTerm = selection[1]['value'][:selection[1]['value'].rfind('(')].rstrip()
+            # Remove station count from search term
+            search_term = selection[1]['value'][:selection[1]['value'].rfind('(')].rstrip()
 
-            self._list_stations(self._menu_to_type(selection[0]['value']), searchTerm)
+            self._list_stations(self._menu_to_type(selection[0]['value']), search_term)
         elif len(selection) == 3:
-            # Remove station count from searchterm
-            searchTerm = selection[1]['value'][:selection[1]['value'].rfind('(')].rstrip()
+            # Remove station count from search term
+            search_term = selection[1]['value'][:selection[1]['value'].rfind('(')].rstrip()
 
-            if self._play_station(self._menu_to_type(selection[0]['value']), searchTerm, selection[2]['value']):
+            if self._play_station(self._menu_to_type(selection[0]['value']), search_term, selection[2]['value']):
                 self.q.put([Action.close])
             else:
                 self.q.put([Action.set_selection, selection[:-1]])
