@@ -14,17 +14,5 @@
   "platforms": [
     "Linux",
     "Darwin"
-  ],
-  "settings": [
-    {
-      "defaults": "http://www.radio-browser.info/webservice",
-      "description": "API \u57fa\u790e\u7db2\u5740",
-      "name": "baseUrl"
-    },
-    {
-      "default": "Pext RadioBrowser/Development",
-      "description": "\u4f7f\u7528\u8005\u4ee3\u7406",
-      "name": "useragent"
-    }
   ]
 }

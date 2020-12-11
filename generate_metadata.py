@@ -46,13 +46,5 @@ for language in languages:
                'git_branch_stable': 'stable',
                'bugtracker': 'https://github.com/Pext/pext_module_radio',
                'bugtracker_type': 'github',
-               'settings': [{'name': 'baseUrl',
-                             'description': _('API base URL'),
-                             'defaults': 'http://www.radio-browser.info/webservice'
-                            }, {
-                             'name': 'useragent',
-                             'description': _('User Agent'),
-                             'default': 'Pext RadioBrowser/Development'
-                            }],
                'platforms': ['Linux', 'Darwin']},
               metadata_file, indent=2, sort_keys=True)
