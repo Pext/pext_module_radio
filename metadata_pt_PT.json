@@ -1,7 +1,7 @@
 {
   "bugtracker": "https://github.com/Pext/pext_module_radio",
   "bugtracker_type": "github",
-  "description": "Allows Pext to play internet radio",
+  "description": "Permite \u00e0 Pext tocar r\u00e1dio pela Internet",
   "developer": "Sylvia van Os",
   "git_branch_stable": "stable",
   "git_urls": [
@@ -10,21 +10,9 @@
   "homepage": "https://pext.hackerchick.me/",
   "id": "pext.module.radio",
   "license": "GPL-3.0+",
-  "name": "Radio",
+  "name": "R\u00e1dio",
   "platforms": [
     "Linux",
     "Darwin"
-  ],
-  "settings": [
-    {
-      "defaults": "http://www.radio-browser.info/webservice",
-      "description": "API base URL",
-      "name": "baseUrl"
-    },
-    {
-      "default": "Pext RadioBrowser/Development",
-      "description": "User Agent",
-      "name": "useragent"
-    }
   ]
 }
