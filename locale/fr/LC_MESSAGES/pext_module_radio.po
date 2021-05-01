@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2020-06-16 20:03+CEST\n"
-"PO-Revision-Date: 2020-11-14 00:28+0000\n"
+"PO-Revision-Date: 2021-05-02 00:41+0000\n"
 "Last-Translator: J. Lavoie <j.lavoie@net-c.ca>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/pext/pext-radio-"
-"module/fr/>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/pext/"
+"pext-radio-module/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.4-dev\n"
+"X-Generator: Weblate 4.7-dev\n"
 "Generated-By: pygettext.py 1.5\n"
 
 #: __init__.py:78
@@ -28,35 +28,35 @@ msgstr "Favoris"
 
 #: __init__.py:112 __init__.py:156
 msgid "By Country"
-msgstr "Par Pays"
+msgstr "Par pays"
 
 #: __init__.py:114 __init__.py:157
 msgid "By Codec"
-msgstr "Par Codec"
+msgstr "Par codec"
 
 #: __init__.py:116 __init__.py:158
 msgid "By Language"
-msgstr "Par Langue"
+msgstr "Par langue"
 
 #: __init__.py:118 __init__.py:159
 msgid "By Tags"
-msgstr "Par Balises"
+msgstr "Par balises"
 
 #: __init__.py:120 __init__.py:160
 msgid "By Votes"
-msgstr "Par Votes"
+msgstr "Par votes"
 
 #: __init__.py:122 __init__.py:161
 msgid "By Most Tune-Ins"
-msgstr "Par La Plupart Des Syntoniseurs"
+msgstr "Par la plupart des syntoniseurs"
 
 #: __init__.py:124 __init__.py:162
 msgid "By Most Recent Listener"
-msgstr "Par Le Plus Récent Auditeur"
+msgstr "Par le plus récent auditeur"
 
 #: __init__.py:126 __init__.py:163
 msgid "By Most Recent Change"
-msgstr "Par Le Changement Le Plus Récent"
+msgstr "Par le changement le plus récent"
 
 #: __init__.py:166
 msgid "mute"
@@ -68,7 +68,7 @@ msgstr "activer l'audio"
 
 #: __init__.py:170
 msgid "stop"
-msgstr "arrêtez"
+msgstr "arrêter"
 
 #: __init__.py:171
 msgid "vote"
@@ -153,7 +153,7 @@ msgstr "Radio"
 
 #: generate_metadata.py:42
 msgid "Allows Pext to play internet radio"
-msgstr "Permet à Pext de jouer à la radio Internet"
+msgstr "Permet à Pext de diffuser la radio Internet"
 
 #: generate_metadata.py:50
 msgid "API base URL"
